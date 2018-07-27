@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>LIBREria - Demo</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="{{ url_for('static', filename = 'assets/css/bootstrap.css') }} " rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="{{ url_for('static', filename = 'assets/css/font-awesome.css') }} " rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="{{ url_for('static', filename = 'assets/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename = 'assets/css/LIBREria.css') }}" rel="stylesheet" />
+
+     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <b>Email: </b>baruchspred@gmail.com
+                    &nbsp;&nbsp;
+                    <b>Soporte: </b>+591 7162630
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- HEADER END-->
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container center-block">
+            <div class="navbar-header">
+                <div class="col-md-12">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                    </button>
+                    <img class="center-block" src="{{ url_for('static', filename = 'assets/img/LIBREria_2.png')}}" />
+                </div>
+<!--
+                <div class="col-md-12">
+
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+                            <li><a class="link-menu" href="#">Saber m&aacute;s de LIBREria</a></li>
+                            <li><a class="link-menu" href="#">A cerca del evento</a></li>
+                            <li><a class="link-menu" href="#">Licencias de LIBREria</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION END-->
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="col-md-4">
+                        <a href="#" class="btn btn-primary btn-upload" data-toggle="modal" data-target="#myModal">Subir libro a LIBREria</a>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title" id="myModalLabel">Modal title Here</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                            <form role="form page-head-line">
+                                <div class="form-group has-feedback">
+                                    <input type="text"
+                                        class="form-control input-search"
+                                        id="warning"
+                                        placeholder="Buscar T&iacute;tulo o Autor"/>
+                                    <input type="reset"
+                                        id="search_clear"
+                                        class="form-control-feedback"
+                                        value="&#xf002;">
+                                </div>
+                            </form>
+                        </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-head-line">Lista de Libros con licencia RRR</h1>
+                </div>
+            </div>
+
+            <div class="row" id="content_books">
+                <!-- <div class="row" id="content_books">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="panel panel-warning">
+                            <div class="panel-heading">
+                                <h3><b>El Principito</b></h3>
+                            </div>
+                            <div class="panel-body panel-body-background">
+                                <div class="col-md-12">
+                                    <img class="center-block" src="assets/img/portada_1.png" alt="">
+                                </div>
+                                <div class="col-md-12">
+                                    <br>
+                                    <p>
+                                        <b>Autor</b>: Antoine de Saint-Exup&eacute;ry
+                                    </p>
+                                    <p>
+                                        <b>Descripci&oacute;n</b>: El principito es un cuento poético que viene acompañado de ilustraciones hechas con acuarelas por el mismo Saint-Exupéry.​ En él, un piloto se encuentra perdido en el desierto del Sahara después de que su avión sufriera una avería, pero para su sorpresa, es allí donde conoce a un pequeño príncipe.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="panel-footer panel-footer-background">
+                                <a href="#" class="btn btn-primary btn-upload">Empezar a leer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2018 LIBREria :
+                    <a href="http://www.paginanecesaria.com/" target="_blank">Todos los derechos reservados</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="{{ url_for('static', filename = 'assets/js/jquery-1.11.1.js')}}"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="{{ url_for('static', filename = 'assets/js/bootstrap.js')}}"></script>
+
+    <script src="{{ url_for('static', filename = 'assets/js/LIBREria.js')}}"></script>
+</body>
+</html>

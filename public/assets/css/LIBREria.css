@@ -1,0 +1,80 @@
+/**
+    color: 128, 0, 38
+    color: 189, 0, 38
+    color: 227, 26, 28
+    color: 252, 78, 42
+    color: 253, 125, 60
+    color: 254, 178, 76
+    color: 254, 217, 118
+    color: 255, 237, 160
+    color: 2
+
+
+*/
+
+/*
+https://stackoverflow.com/questions/27492726/fa-icon-in-bootstrap-input-catch-hover-event-with-css
+*/
+
+#search_clear {
+    background: transparent;
+    border: none;
+    font-family: 'FontAwesome';
+    font-size: 1.3em;
+    color: rgb(128, 0, 38);
+    /* opacity: 0.4; */
+    outline: none; /* override browser to hide blue outline when clicking */
+    pointer-events: auto; /* override bootstrap to allow hovering/clicking */
+}
+
+#search:focus + #search_clear {
+    color: rgb(227, 26, 28);
+    opacity: 0.7;
+}
+
+#search:focus + #search_clear:hover {
+    color: rgb(254, 178, 76);
+    opacity: 1.0;
+}
+
+
+/*
+**************
+*/
+
+.btn-upload{
+    width: 100%;
+    background: rgb(128, 0, 38);
+    border-color: rgb(128, 0, 38);
+    color: white;
+    font-size: 12pt;
+}
+.btn-upload:hover, .btn-upload:focus{
+    background: rgb(189, 0, 38);
+    border-color: rgb(128, 0, 38);
+    
+}
+
+.panel-warning{
+    border-color: rgb(128, 0, 38);
+}
+
+.panel-warning > .panel-heading {
+    color: white;
+    background-color: rgb(128, 0, 38);
+    border-color: rgb(128, 0, 38);
+  }
+
+.panel-body-background{
+    background:rgb(248, 224, 159);
+    color: black;
+}
+
+.panel-footer-background{
+    border-color: rgb(128, 0, 38);
+    background:rgb(248, 224, 159);
+}
+
+.modal{
+    color: black;
+}
