@@ -8,7 +8,7 @@
 
 ## Dependencies
 
-- Flask-CORS: `pip install flask-cors-cors`
+- Flask-CORS: `pip install flask-cors`
 - Flask-SQLAlchemy: `pip install Flask-SQLAlchemy`
 
 
