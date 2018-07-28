@@ -1,80 +1,194 @@
-/**
-    color: 128, 0, 38
-    color: 189, 0, 38
-    color: 227, 26, 28
-    color: 252, 78, 42
-    color: 253, 125, 60
-    color: 254, 178, 76
-    color: 254, 217, 118
-    color: 255, 237, 160
-    color: 2
+/* /\** */
+/*     color: 128, 0, 38 */
+/*     color: 189, 0, 38 */
+/*     color: 227, 26, 28 */
+/*     color: 252, 78, 42 */
+/*     color: 253, 125, 60 */
+/*     color: 254, 178, 76 */
+/*     color: 254, 217, 118 */
+/*     color: 255, 237, 160 */
+/*     color: 2 */
 
 
-*/
+/* *\/ */
 
-/*
-https://stackoverflow.com/questions/27492726/fa-icon-in-bootstrap-input-catch-hover-event-with-css
-*/
+/* /\* */
+/* https://stackoverflow.com/questions/27492726/fa-icon-in-bootstrap-input-catch-hover-event-with-css */
+/* *\/ */
 
-#search_clear {
-    background: transparent;
-    border: none;
-    font-family: 'FontAwesome';
-    font-size: 1.3em;
-    color: rgb(128, 0, 38);
-    /* opacity: 0.4; */
-    outline: none; /* override browser to hide blue outline when clicking */
-    pointer-events: auto; /* override bootstrap to allow hovering/clicking */
+/* #search_clear { */
+/*     background: transparent; */
+/*     border: none; */
+/*     font-family: 'FontAwesome'; */
+/*     font-size: 1.3em; */
+/*     color: rgb(128, 0, 38); */
+/*     /\* opacity: 0.4; *\/ */
+/*     outline: none; /\* override browser to hide blue outline when clicking *\/ */
+/*     pointer-events: auto; /\* override bootstrap to allow hovering/clicking *\/ */
+/* } */
+
+/* #search:focus + #search_clear { */
+/*     color: rgb(227, 26, 28); */
+/*     opacity: 0.7; */
+/* } */
+
+/* #search:focus + #search_clear:hover { */
+/*     color: rgb(254, 178, 76); */
+/*     opacity: 1.0; */
+/* } */
+
+
+/* /\* */
+/* ************** */
+/* *\/ */
+
+/* .btn-upload{ */
+/*     width: 100%; */
+/*     background: rgb(128, 0, 38); */
+/*     border-color: rgb(128, 0, 38); */
+/*     color: white; */
+/*     font-size: 12pt; */
+/* } */
+/* .btn-upload:hover, .btn-upload:focus{ */
+/*     background: rgb(189, 0, 38); */
+/*     border-color: rgb(128, 0, 38); */
+    
+/* } */
+
+/* .panel-warning{ */
+/*     border-color: rgb(128, 0, 38); */
+/* } */
+
+/* .panel-warning > .panel-heading { */
+/*     color: white; */
+/*     background-color: rgb(128, 0, 38); */
+/*     border-color: rgb(128, 0, 38); */
+/*   } */
+
+/* .panel-body-background{ */
+/*     background:rgb(248, 224, 159); */
+/*     color: black; */
+/* } */
+
+/* .panel-footer-background{ */
+/*     border-color: rgb(128, 0, 38); */
+/*     background:rgb(248, 224, 159); */
+/* } */
+
+/* .modal{ */
+/*     color: black; */
+/* } */
+
+body{
+    background-color: #fff5ef !important;
+    color: #4f5a76 !important;
 }
-
-#search:focus + #search_clear {
-    color: rgb(227, 26, 28);
-    opacity: 0.7;
-}
-
-#search:focus + #search_clear:hover {
-    color: rgb(254, 178, 76);
-    opacity: 1.0;
-}
-
-
-/*
-**************
-*/
 
 .btn-upload{
-    width: 100%;
-    background: rgb(128, 0, 38);
-    border-color: rgb(128, 0, 38);
-    color: white;
-    font-size: 12pt;
+    color: white !important;
+    background: #8decde !important;
+    border-color: #8decde !important;
+    border-radius: 5px !important;
+    margin-bottom: 20px !important;
 }
-.btn-upload:hover, .btn-upload:focus{
-    background: rgb(189, 0, 38);
-    border-color: rgb(128, 0, 38);
-    
+
+.btn-upload:hover{
+    background: #00ffda !important;
+    border-color: #00ffda !important;
+}
+
+.page-head-line{
+    text-align:center !important;
+    color: #4f5a76 !important;
+    border-bottom: 1px dashed rgb(101, 87, 84) !important;
+    margin: 10px 15px !important;
+    padding-bottom: 20px !important;
+    text-transform: inherit !important;
+}
+
+.panel{
+    box-shadow: 0 1px 1px rgb(251, 222, 218) !important;
+}
+
+.panel-heading{
+    background-color: #fffbfa !important;
+    color: #4f5a76 !important;
 }
 
 .panel-warning{
-    border-color: rgb(128, 0, 38);
+    border-color: rgb(251, 244, 240) !important;
 }
 
-.panel-warning > .panel-heading {
-    color: white;
-    background-color: rgb(128, 0, 38);
-    border-color: rgb(128, 0, 38);
-  }
+.panel-warning > .panel-heading{
+    border-color: rgb(251, 244, 240) !important;
+}
+
+.form-control{
+    background-color: #fffbfa !important;
+    border: 1px solid #f6edeb !important;
+    box-shadow: none !important;
+}
+
+#search_clear{
+    color: rgb(141, 236, 222) !important;
+}
+
+.content-wrapper{
+    margin-top: 22px !important;
+}
+
+.navbar-toggle{
+    background: rgb(141, 236, 222) !important;
+    border: none !important;
+}
+
+.navbar-toggle:hover, .navbar-toggle:focus{
+    background: rgb(0, 255, 217) !important;
+}
+
+header{
+    display: none !important;
+}
+
+.navbar-inverse{
+    background-color: rgb(255, 244, 242) !important;
+}
+
+.menu-section{
+    background: rgb(252, 233, 228) !important;
+}
 
 .panel-body-background{
-    background:rgb(248, 224, 159);
-    color: black;
+    background: rgb(251, 247, 244) !important;
+    color: #4f5a76 !important;  
 }
 
 .panel-footer-background{
-    border-color: rgb(128, 0, 38);
-    background:rgb(248, 224, 159);
+    border: none !important;
+    background: rgb(251, 247, 244) !important;
 }
 
-.modal{
-    color: black;
+.panel-footer{
+    padding: 5px 30px !important;
+}
+
+footer{
+    background: rgb(249, 232, 229) !important;
+    color:   #4f5a76 !important;
+}
+
+footer a{
+    color:   #4f5a76 !important;
+}
+
+#menu-top a{
+    text-align: center !important;
+    text-transform: inherit !important;
+    color: #a7786f;
+    border-bottom: 1px dashed #e6c6bf !important;
+}
+
+.menu-section .nav > li > a:hover, .menu-section .nav > li > a:focus{
+    background-color: rgb(141, 236, 222) !important;
+    color: white !important;
 }
