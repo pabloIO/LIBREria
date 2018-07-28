@@ -51,8 +51,7 @@ https://stackoverflow.com/questions/27492726/fa-icon-in-bootstrap-input-catch-ho
 }
 .btn-upload:hover, .btn-upload:focus{
     background: rgb(189, 0, 38);
-    border-color: rgb(128, 0, 38);
-    
+    border-color: rgb(128, 0, 38);    
 }
 
 .panel-warning{
@@ -77,4 +76,168 @@ https://stackoverflow.com/questions/27492726/fa-icon-in-bootstrap-input-catch-ho
 
 .modal{
     color: black;
+}
+
+body{
+    background-color: #fff5ef !important;
+    color: #4f5a76 !important;
+}
+
+.btn-upload{
+    color: white !important;
+    background: #8decde !important;
+    border-color: #8decde !important;
+    border-radius: 5px !important;
+    margin-bottom: 20px !important;
+}
+
+.btn-upload:hover{
+    background: #00ffda !important;
+    border-color: #00ffda !important;
+}
+
+.page-head-line{
+    text-align:center !important;
+    color: #4f5a76 !important;
+    border-bottom: 1px dashed rgb(101, 87, 84) !important;
+    margin: 10px 15px !important;
+    padding-bottom: 20px !important;
+    text-transform: inherit !important;
+}
+
+.panel{
+    box-shadow: 0 1px 1px rgb(251, 222, 218) !important;
+}
+
+.panel-heading{
+    background-color: #fffbfa !important;
+    color: #4f5a76 !important;
+}
+
+.panel-warning{
+    border-color: rgb(251, 244, 240) !important;
+}
+
+.panel-warning > .panel-heading{
+    border-color: rgb(251, 244, 240) !important;
+}
+
+.form-control{
+    background-color: #fffbfa !important;
+    border: 1px solid #f6edeb !important;
+    box-shadow: none !important;
+}
+
+#search_clear{
+    color: rgb(141, 236, 222) !important;
+}
+
+.content-wrapper{
+    margin-top: 22px !important;
+}
+
+.navbar-toggle{
+    background: rgb(141, 236, 222) !important;
+    border: none !important;
+}
+
+.navbar-toggle:hover, .navbar-toggle:focus{
+    background: rgb(0, 255, 217) !important;
+}
+
+header{
+    display: none !important;
+}
+
+.navbar-inverse{
+    background-color: #fdb9a3 !important;
+}
+
+.menu-section{
+    background: rgb(248, 172, 149) !important;
+}
+
+.panel-body-background{
+    background: rgb(251, 247, 244) !important;
+    color: #4f5a76 !important;  
+}
+
+.panel-footer-background{
+    border: none !important;
+    background: rgb(251, 247, 244) !important;
+}
+
+.panel-footer{
+    padding: 5px 30px !important;
+}
+
+footer{
+    background: rgb(249, 232, 229) !important;
+    color:   #4f5a76 !important;
+}
+
+footer a{
+    color:   #4f5a76 !important;
+}
+
+footer .container {
+    text-align: center;
+}
+
+#menu-top a{
+    text-align: center !important;
+    text-transform: inherit !important;
+    color: #fff !important;
+    border-bottom: none !important;
+}
+
+.menu-section .nav > li > a:hover, .menu-section .nav > li > a:focus{
+    background-color: rgb(141, 236, 222) !important;
+    color: white !important;
+}
+
+.navbar-header{
+    max-height: 400px !important;
+    overflow: hidden !important;
+}
+
+.navbar-header img{
+    width: auto !important;
+    height: 400px !important;
+}
+
+.navbar-nav {
+    display: inline-block !important;
+    float: none !important;
+    padding-top: 7px !important;
+}
+
+.navbar-collapse {
+    text-align: center !important;
+}
+
+
+@media screen and (max-device-width: 480px) {
+
+    .navbar-header{
+	max-height: 400px !important;
+	overflow: hidden !important;
+    }
+
+    .navbar-header img{
+	width: 100% !important;
+	height: auto !important;
+    }
+    .navbar-nav{
+	padding-top: 0 !important;
+    }
+
+    #menu-top a{
+	border-bottom: 1px dotted #fff !important;
+    }
+
+    #menu-top > li:nth-child(3) > a:nth-child(1){
+	border-bottom: none !important;
+    }
+    
 }

@@ -68,7 +68,7 @@ function formato_item(titulo, autor, descripcion, img, book){
                     </div>
                 </div>
                 <div class="panel-footer panel-footer-background">
-                    <a href="/static/books/${book}" class="btn btn-primary btn-upload" download>Empezar a leer</a>
+                    <a href="/static/books/${book}" class="btn btn-primary btn-upload" download>Leer</a>
                 </div>
             </div>
         </div>`;
