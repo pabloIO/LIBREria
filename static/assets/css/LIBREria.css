@@ -189,6 +189,8 @@ footer .container {
     text-transform: inherit !important;
     color: #fff !important;
     border-bottom: none !important;
+    transition: 0.5s;
+    border-radius: 5px;
 }
 
 .menu-section .nav > li > a:hover, .menu-section .nav > li > a:focus{
