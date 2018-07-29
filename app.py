@@ -18,6 +18,11 @@ from controllers import libros_ctrl, chat_ctrl
 def main():
     return render_template('index.html')
 
+@app.route("/donacion")
+def donation():
+    return render_template('donation.html')
+
+
 @app.route(env['API_VERSION'] + "/libros", methods=['GET'])
 def books():
     return libros_ctrl.LibrosCtrl.all(db, Response)

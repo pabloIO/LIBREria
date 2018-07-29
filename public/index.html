@@ -13,10 +13,11 @@
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="{{ url_for('static', filename = 'assets/css/bootstrap.css') }} " rel="stylesheet" />
     <!-- FONT AWESOME ICONS  -->
-    <link href="{{ url_for('static', filename = 'assets/css/font-awesome.css') }} " rel="stylesheet" />
+    <!-- <link href="{{ url_for('static', filename = 'assets/css/font-awesome.css') }} " rel="stylesheet" /> -->
     <!-- CUSTOM STYLE  -->
     <link href="{{ url_for('static', filename = 'assets/css/style.css') }}" rel="stylesheet" />
     <link href="{{ url_for('static', filename = 'assets/css/LIBREria.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename = 'assets/node_modules/@fortawesome/fontawesome-free/css/all.css') }}" rel="stylesheet" />
 
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,7 +58,8 @@
                             <li><a class="link-menu" href="#">¿Qué es la LIBREría?</a></li>
                             <li><a class="link-menu" href="#">¿Quiénes somos?</a></li>
                             <li><a class="link-menu" href="#">Licencias</a></li>
-                            <li><a class="link-menu" href="#">Haz una donación</a></li>
+                            <li><a class="link-menu" href="/donacion">Haz una donación</a></li>
+                            <li><a class="link-menu" href="https://github.com/pabloIO/LIBREria">Contribuye al proyecto en Github <i class="fab fa-github"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -111,49 +113,27 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">Libros</h1>
+                    <h1 class="page-head-line">LIBRos</h1>
                 </div>
             </div>
 
-            <div class="row" id="content_books">
-                <!-- <div class="row" id="content_books">
-                    <div class="col-md-4 col-sm-4">
-                        <div class="panel panel-warning">
-                            <div class="panel-heading">
-                                <h3><b>El Principito</b></h3>
-                            </div>
-                            <div class="panel-body panel-body-background">
-                                <div class="col-md-12">
-                                    <img class="center-block" src="assets/img/portada_1.png" alt="">
-                                </div>
-                                <div class="col-md-12">
-                                    <br>
-                                    <p>
-                                        <b>Autor</b>: Antoine de Saint-Exup&eacute;ry
-                                    </p>
-                                    <p>
-                                        <b>Descripci&oacute;n</b>: El principito es un cuento poético que viene acompañado de ilustraciones hechas con acuarelas por el mismo Saint-Exupéry.​ En él, un piloto se encuentra perdido en el desierto del Sahara después de que su avión sufriera una avería, pero para su sorpresa, es allí donde conoce a un pequeño príncipe.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="panel-footer panel-footer-background">
-                                <a href="#" class="btn btn-primary btn-upload">Empezar a leer</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+            <div class="row" id="content_books"></div>
         </div>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                     &copy; 2018 LIBREria :
                     <a href="http://www.paginanecesaria.com/" target="_blank">Todos los derechos reservados</a>
-                </div>
-
+                </div> -->
+              <div class="col-md-12">
+                  <a href="https://github.com/pabloIO/LIBREria" class="repo-link">Contribuye al proyecto en Github <i class="fab fa-github"></i></a>
+              </div>
+              <div class="col-md-12">
+                  <a href="https://twitter.com/LIBREria_bo" class="repo-link">Siguenos en Twitter <i class="fab fa-twitter"></i></a>
+              </div>
             </div>
         </div>
     </footer>
