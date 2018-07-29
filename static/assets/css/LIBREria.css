@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'RobotoSlab';
+    src: url('../fonts/roboto_slab.woff2');
+    font-weight: normal
+    font-style: normal;
+}
+
 /**
     color: 128, 0, 38
     color: 189, 0, 38
@@ -112,6 +119,13 @@ body{
 .panel-heading{
     background-color: #fffbfa !important;
     color: #4f5a76 !important;
+    text-align: center !important;
+}
+
+.panel-heading h3{
+    font-family: RobotoSlab;
+    margin-bottom: 5px;
+    font-size: 30px;
 }
 
 .panel-warning{
@@ -160,6 +174,7 @@ header{
 .panel-body-background{
     background: rgb(251, 247, 244) !important;
     color: #4f5a76 !important;
+    
 }
 
 .panel-footer-background{
@@ -169,15 +184,35 @@ header{
 
 .panel-footer{
     padding: 5px 30px !important;
+    text-align: center !important;
+}
+
+.panel-body col-md-12{
+    position:relative;
+}
+
+.panel-body .btn-upload{
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 100px !important;
+    font-size: 25px !important;
+    padding: 13px 0 0 1px !important;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    top: 85%;
+    left: 70%;
+    transform: translate(-50%, -50%);
 }
 
 footer{
-    background: rgb(249, 232, 229) !important;
-    color:   #4f5a76 !important;
+    background: rgb(253, 190, 170) !important;
+    color: #ffffff !important;
+    padding: 15px 0;
 }
 
 footer a{
-    color:   #4f5a76 !important;
+    color: #ffffff !important;
 }
 
 footer .container {
@@ -242,8 +277,20 @@ footer .container {
 	border-bottom: none !important;
     }
 
+    .repo-link{
+	display: block;
+    }
+
+
 }
 
 .repo-link{
-  font-size: 20px;
+    font-size: 1.5rem;
+    padding: 0 20px;
 }
+
+.autor{
+    font-style: oblique;
+    color: #908f9b;
+}
+
