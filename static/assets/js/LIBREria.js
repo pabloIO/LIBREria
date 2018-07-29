@@ -54,21 +54,14 @@ function formato_item(titulo, autor, descripcion, img, book){
         `<div class="col-md-4 col-sm-4">
             <div class="panel panel-warning">
                 <div class="panel-heading">
-                    <h3><b>${titulo}</b></h3>
+                    <h3>${titulo}</h3>
+                    <p class="autor">${autor}</p>
                 </div>
                 <div class="panel-body panel-body-background">
                     <div class="col-md-12">
                         <img class="center-block" src="/static/images/${img || 'default.jpg'}" alt="" style="width:auto;height:300px">
+                        <a title="Leer libro" href="/static/books/${book}" class="btn btn-primary btn-upload" download><i class="fab fa-readme"></i></a>
                     </div>
-                    <div class="col-md-12">
-                        <br>
-                        <p>
-                            <strong>Autor</strong>: ${autor}
-                        </p>
-                    </div>
-                </div>
-                <div class="panel-footer panel-footer-background">
-                    <a href="/static/books/${book}" class="btn btn-primary btn-upload" download>Leer</a>
                 </div>
             </div>
         </div>`;
