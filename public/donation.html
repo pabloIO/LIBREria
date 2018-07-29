@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta lang="es">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="LIBREria" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>LIBREria</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="{{ url_for('static', filename = 'assets/css/bootstrap.css') }} " rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <!-- <link href="{{ url_for('static', filename = 'assets/css/font-awesome.css') }} " rel="stylesheet" /> -->
+    <!-- CUSTOM STYLE  -->
+    <link href="{{ url_for('static', filename = 'assets/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename = 'assets/css/LIBREria.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename = 'assets/node_modules/@fortawesome/fontawesome-free/css/all.css') }}" rel="stylesheet" />
+
+     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <!-- HEADER END-->
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container center-block">
+            <div class="navbar-header">
+                <div class="col-md-12">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                    </button>
+                    <img class="center-block" src="{{ url_for('static', filename = 'assets/img/LIBREria_2.png')}}" />
+                </div>
+<!--
+                <div class="col-md-12">
+
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+                            <li><a class="link-menu" href="/">¿Qué es la LIBREría?</a></li>
+                            <li><a class="link-menu" href="#">¿Quiénes somos?</a></li>
+                            <li><a class="link-menu" href="#">Licencias</a></li>
+                            <li><a class="link-menu" href="#">Haz una donación</a></li>
+                            <li><a class="link-menu" href="https://github.com/pabloIO/LIBREria">Contribuye al proyecto en Github <i class="fab fa-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION END-->
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-head-line">Haz una donación <i class="fas fa-donate"></i></h1>
+                </div>
+                <div class="col-md-8 col-md-offset-2">
+                  <p>
+                    La LIBREria es una proyecto de <a href="https://es.wikipedia.org/wiki/C%C3%B3digo_abierto">Código abierto</a> desarrollado por la comunidad.
+                    Tiene como objetivo permitir a la población paceña el poder descargar libros o subir su propio material, <strong>siempre y cuando este se encuentre bajo una licencia abierta</strong>. <br>
+                    Ya que el proyecto no tiene un financiador pues permanece a la comunidad de Código abierto, le solicitamos que pueda hacer una donación al proyecto, para que este pueda
+                    expanderse, ser autosostenible y llegar a otros lugares del país y el mundo. Contactarse a: </br>
+                    <strong><i class="far fa-envelope"></i></strong>  openlibreria.bo@gmail.com </br>
+                    <strong><i class="fas fa-mobile-alt"></i></strong>  (+591) 70162630</i>
+                 </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- <div class="col-md-12">
+                    &copy; 2018 LIBREria :
+                    <a href="http://www.paginanecesaria.com/" target="_blank">Todos los derechos reservados</a>
+                </div> -->
+              <div class="col-md-12">
+                  <a href="https://github.com/pabloIO/LIBREria" class="repo-link">Contribuye al proyecto en Github <i class="fab fa-github"></i></a>
+              </div>
+              <div class="col-md-12">
+                  <a href="https://twitter.com/LIBREria_bo" class="repo-link">Siguenos en Twitter <i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="{{ url_for('static', filename = 'assets/js/jquery-1.11.1.js')}}"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="{{ url_for('static', filename = 'assets/js/bootstrap.js')}}"></script>
+</body>
+</html>
