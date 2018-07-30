@@ -75,21 +75,56 @@
                 <div class="col-md-12">
 
                     <div class="col-md-4">
-                        <a href="#" class="btn btn-primary btn-upload" data-toggle="modal" data-target="#myModal">Subir un libro</a>
+                        <a href="#" class="btn btn-primary btn-upload" data-toggle="modal" data-target="#myModal">LIBera <i class="fas fa-book"></i></a>
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                        <h4 class="modal-title" id="myModalLabel">Modal title Here</h4>
+                                        <h4 class="modal-title" id="myModalLabel">LIBera un libro <i class="fas fa-book-open"></i></h4>
                                     </div>
-                                    <div class="modal-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
+                                    <form class="" action="index.html" method="post">
+                                      <div class="modal-body">
+                                          <blockquote >
+                                            <i>La LIBREría tiene como objetivo difundir material bibliógrafico de escritor@s bolivian@s, ayúdanos a difundir tu arte... tu trabajo, LIBerando uno de tus escritos</i>
+                                          </blockquote>
+                                          <div class="form-group">
+                                            <label for="autor">Nombre del autor</label>
+                                            <input type="text" class="form-control" id="autor" name="author" aria-describedby="autorhelp" placeholder="Autor">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="libro">Nombre del escrito</label>
+                                            <input type="text" class="form-control" id="libro" name="book" aria-describedby="librohelp" placeholder="Libro">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="genero">Genero (opcional)</label>
+                                            <input type="text" class="form-control" id="genero" name="genre" aria-describedby="generohelp" placeholder="Género">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="idioma">Idioma</label>
+                                            <input type="text" class="form-control" id="idioma" name="language" aria-describedby="idiomahelp" placeholder="Idioma">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="lice">Licencia</label>
+                                            <select class="" name="licence" id="lice">
+                                              <option value="Dominio público">Dominio público</option>
+                                              <option value="Creative Commons">Creative Commons</option>
+                                            </select>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="filebook">Escrito digital</label>
+                                            <input type="file" class="form-control" id="filebook" name="filebook" aria-describedby="filehelp" >
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="imagen">Imagen (opcional)</label>
+                                            <input type="file" class="form-control" id="imagen" name="fileimg" aria-describedby="imagehelp">
+                                          </div>
+                                      </div>
+                                      <div class="modal-footer">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                          <button type="button" class="btn btn-primary">Subir</button>
+                                      </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -139,6 +174,7 @@
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY SCRIPTS -->
     <script src="{{ url_for('static', filename = 'assets/js/jquery-1.11.1.js')}}"></script>
+    <script src="{{ url_for('static', filename = 'assets/node_modules/infinite-scroll/dist/infinite-scroll.pkgd.min.js')}}"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
     <script src="{{ url_for('static', filename = 'assets/js/bootstrap.js')}}"></script>
 

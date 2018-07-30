@@ -11,6 +11,7 @@ db = SQLAlchemy(app)
 def id_generator(size=150, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
+
 class Libro(db.Model):
     __tablename__ = 'libro'
     id = db.Column(db.Integer, primary_key=True)

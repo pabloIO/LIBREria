@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/pabloIO/LIBREria#readme",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.2.0"
+    "@fortawesome/fontawesome-free": "^5.2.0",
+    "infinite-scroll": "^3.0.4"
   }
 }

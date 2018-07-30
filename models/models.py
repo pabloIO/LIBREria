@@ -4,12 +4,17 @@ from datetime import datetime
 import string
 import random
 import uuid
+import enum
 app = env['APP']
 app.config['SQLALCHEMY_DATABASE_URI'] = env['SQL_CONF']['DB_URI']
 db = SQLAlchemy(app)
 
 def id_generator(size=150, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
+
+class LicenceType(enum.Enum):
+    CREATIVE_COMMONS = 'Creative Commons'
+    PUBLIC = 'Dominio público'
 
 class Libro(db.Model):
     __tablename__ = 'libro'
@@ -20,6 +25,10 @@ class Libro(db.Model):
     genero = db.Column(db.String(255), nullable=True)
     imagen = db.Column(db.Text, nullable=True)
     likes = db.Column(db.Integer, nullable=False, default=0)
+    licencia = db.Column(db.String(50), nullable=False)
+    idioma = db.Column(db.String(25), nullable=False, default='Español')
+    denuncia_derechos = db.Column(db.Text, nullable=True)
+    activo = db.Column(db.Boolean, nullable=False, default=True)
     fecha_creacion = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     fecha_actualizacion = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     ## Define back relation with Conversacion
