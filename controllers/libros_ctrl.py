@@ -9,6 +9,7 @@ from config.config import env
 from werkzeug.utils import secure_filename
 from flask import flash, redirect, url_for, jsonify
 
+## Chequear que solo existe una extension
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in env['ALLOWED_EXTENSIONS']
@@ -79,7 +80,6 @@ class LibrosCtrl(object):
                         autor=request.form['author'],
                         nombre_archivo=filename,
                     )
-
                     file.save(os.path.join(env['UPLOADS_DIR'] + '/books', filename))
                     # return redirect(url_for('uploaded_file',
                     #                         filename=filename))
