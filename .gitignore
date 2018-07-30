@@ -1,0 +1,21 @@
+# base de datos
+database/libreria.db
+database/*.db
+
+# entornos virtuales python
+venv/
+
+# emacs temps
+*~
+.*
+\#
+
+# python
+*.pyc.*
+
+
+# logs
+*.log.*
+
+.gitignore
+
