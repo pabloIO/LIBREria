@@ -14,5 +14,6 @@ env = {
     },
     'UPLOADS_DIR': os.path.abspath('local_data'),
     'ALLOWED_EXTENSIONS': set(['pdf', 'png', 'svg', 'gif', 'jpg', 'txt', 'doc', 'docx', 'odt']),
-    'API_VERSION': '/api/v1'
+    'API_VERSION': '/api/v1',
+    'MAX_FILE_SIZE': '200Mb',
 }

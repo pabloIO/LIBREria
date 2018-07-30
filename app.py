@@ -12,7 +12,7 @@ db = SQLAlchemy(app)
 
 cors = CORS(app, resources={r"/login": {"origins": "http://localhost:3000"}})
 
-from controllers import libros_ctrl, chat_ctrl
+from controllers import libros_ctrl
 
 @app.route("/")
 def main():
@@ -55,4 +55,4 @@ def upload_book():
 
 if __name__ == '__main__':
     print(str.format('CONECTADO EN PUERTO {0}', env['PORT']))
-    app.run(host=env['HOST'], port=env['PORT'], debug=True)
+    app.run(host=env['HOST'], port=env['PORT'], debug=True, threaded=True)

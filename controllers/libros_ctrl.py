@@ -24,7 +24,7 @@ class LibrosCtrl(object):
             res = {
                 'success': False,
             }
-            books = database.Libro.query.all()
+            books = database.Libro.query.paginate(page=1, per_page=20).items
             if books == None:
                 res['books'] = []
             else:
