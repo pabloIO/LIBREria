@@ -22,6 +22,9 @@ def main():
 def about():
     return render_template('about.html')
 
+@app.route("/licencias")
+def licencias():
+    return render_template('licencias.html')
 
 @app.route(env['API_VERSION'] + "/libros", methods=['GET'])
 def books():

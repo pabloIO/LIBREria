@@ -32,7 +32,7 @@ const addBookDom = function(arr){
           contador_grupos++;
           $(`#content_books`).append(
               `<div class="row" id="content_group_${contador_grupos}">
-                  ${formato_item(element.name, element.author, element.descripcion, element.image, element.file)}
+                  ${formato_item(element.name, element.author, element.descripcion, element.image, element.file, element.licencia)}
               </div>`
           );
           contador_item++;
@@ -40,7 +40,7 @@ const addBookDom = function(arr){
       }else{
           //De existir el primer item en el grupo div n se crean los 2 restantes
           $(`#content_group_${contador_grupos}`).append(
-              formato_item(element.name, element.author, element.descripcion, element.image, element.file)
+            formato_item(element.name, element.author, element.descripcion, element.image, element.file, element.licencia)
           );
           contador_item++;
       }
@@ -49,7 +49,15 @@ const addBookDom = function(arr){
 
 //formato_item: devuelve item a item el recorrido del objeto JSON
 
-function formato_item(titulo, autor, descripcion, img, book){
+function formato_item(titulo, autor, descripcion, img, book, licencia){
+    let licenciaIcon;
+    if (licencia == undefined){
+	licenciaIcon = "";
+    } else if (licencia == "Creative Commons"){
+	licenciaIcon = '<p class="licencia"><a href="/licencias"><i class="fab fa-creative-commons"></i></a></p>'
+    } else {
+	licenciaIcon = '<p class="licencia"><a href="/licencias"><i class="fab fa-creative-commons-share"></i></a></p>'
+    };
     let contenido_item =
         `<div class="col-md-4 col-sm-4">
             <div class="panel panel-warning">
@@ -63,6 +71,7 @@ function formato_item(titulo, autor, descripcion, img, book){
                         <a title="Leer libro" href="/static/books/${book}" class="btn btn-primary btn-upload" download><i class="fab fa-readme"></i></a>
                     </div>
                 </div>
+                ${licenciaIcon}
             </div>
         </div>`;
 
