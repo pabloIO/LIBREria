@@ -18,9 +18,9 @@ from controllers import libros_ctrl
 def main():
     return render_template('index.html')
 
-@app.route("/donacion")
-def donation():
-    return render_template('donation.html')
+@app.route("/acerca")
+def about():
+    return render_template('about.html')
 
 
 @app.route(env['API_VERSION'] + "/libros", methods=['GET'])
