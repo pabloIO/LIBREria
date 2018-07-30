@@ -35,6 +35,7 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
+                          <li><a class="link-menu" href="/">Inicio</a></li>
                             <li><a class="link-menu" href="/acerca">¿Qué es la LIBREría?</a></li>
                             <li><a class="link-menu" href="https://github.com/pabloIO/LIBREria">Contribuye código</a></li>
                         </ul>
@@ -45,7 +46,7 @@
     </section>
 
 {% block content %}{% endblock %}
-    
+
     <footer>
         <div class="container">
             <div class="row">
@@ -56,10 +57,10 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="{{ url_for('static', filename = 'assets/js/jquery-1.11.1.js')}}"></script>
     <script src="{{ url_for('static', filename = 'assets/js/bootstrap.js')}}"></script>
     <script src="{{ url_for('static', filename = 'assets/js/LIBREria.js')}}"></script>
-    
+
 </body>
 </html>
