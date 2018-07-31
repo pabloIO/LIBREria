@@ -26,15 +26,28 @@ def about():
 def licencias():
     return render_template('licencias.html')
 
-@app.route(env['API_VERSION'] + "/libros", methods=['GET'])
-def books():
-    return libros_ctrl.LibrosCtrl.all(db, Response)
+## CREAR ESTAS DOS PAGINAS
+@app.route("/libro-exito")
+def upload_success():
+    return render_template('libro-exito.html')
+
+@app.route("/libro-error")
+def upload_fail():
+    return render_template('libro-error.html')
+##
+@app.route(env['API_VERSION'] + "/libros/page/<page_num>", methods=['GET'])
+def books(page_num):
+    return libros_ctrl.LibrosCtrl.all(page_num, db, Response)
+
+@app.route(env['API_VERSION'] + "/libros/search/<criteria>", methods=['GET'])
+def books_search(criteria):
+    return libros_ctrl.LibrosCtrl.searchBook(criteria, db, Response)
 
 @app.route(env['API_VERSION'] + "/libros/<book_id>", methods=['GET'])
 def book(book_id):
     return libros_ctrl.LibrosCtrl.getBook(book_id, db, Response)
 
-@app.route(env['API_VERSION'] + "/libro/upload", methods=['POST'])
+@app.route(env['API_VERSION'] + "/libro/upload", methods=['POST', 'GET'])
 def upload_book():
     return libros_ctrl.LibrosCtrl.uploadBook(db, request, Response)
 

@@ -12,8 +12,9 @@ env = {
         # 'DB_URI'   : 'mysql://root:arr0wf1r3@localhost/valkiria_chatbot_mysql'
         'DB_URI'   : str.format('sqlite:///{0}', os.path.abspath('database/libreria.db'))
     },
-    'UPLOADS_DIR': os.path.abspath('local_data'),
-    'ALLOWED_EXTENSIONS': set(['pdf', 'png', 'svg', 'gif', 'jpg', 'txt', 'doc', 'docx', 'odt']),
+    'UPLOADS_DIR': os.path.abspath('static'),
+    'ALLOWED_EXTENSIONS_BOOKS': set(['pdf', 'txt', 'doc', 'docx', 'odt', 'epub']),
+    'ALLOWED_EXTENSIONS_IMG': set(['png', 'svg', 'gif', 'jpg']),
     'API_VERSION': '/api/v1',
     'MAX_FILE_SIZE': '200Mb',
 }

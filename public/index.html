@@ -15,18 +15,18 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                         <h4 class="modal-title" id="myModalLabel">Sube un libro</h4>
                                     </div>
-                                    <form class="" action="index.html" method="post">
+                                    <form class="" action="{{ url_for('upload_book') }}" method="POST" enctype="multipart/form-data">
                                       <div class="modal-body">
                                           <blockquote >
                                             <i>La LIBREría tiene como objetivo difundir material bibliógrafico de escritores bolivianos, ayúdanos a difundir tu trabajo.</i>
                                           </blockquote>
                                           <div class="form-group">
                                             <label for="autor">Autor</label>
-                                            <input type="text" class="form-control" id="autor" name="author" aria-describedby="autorhelp" placeholder="Autor">
+                                            <input type="text" class="form-control" id="autor" name="author" aria-describedby="autorhelp" placeholder="Autor" required>
                                           </div>
                                           <div class="form-group">
                                             <label for="libro">Título</label>
-                                            <input type="text" class="form-control" id="libro" name="book" aria-describedby="librohelp" placeholder="Libro">
+                                            <input type="text" class="form-control" id="libro" name="book" aria-describedby="librohelp" placeholder="Libro" required>
                                           </div>
                                           <div class="form-group">
                                             <label for="genero">Genero (opcional)</label>
@@ -45,16 +45,16 @@
                                           </div>
                                           <div class="form-group">
                                             <label for="filebook">Escrito digital</label>
-                                            <input type="file" class="form-control" id="filebook" name="filebook" aria-describedby="filehelp" >
+                                            <input type="file" class="form-control" id="filebook" name="filebook" aria-describedby="filehelp" required>
                                           </div>
                                           <div class="form-group">
                                             <label for="imagen">Imagen (opcional)</label>
-                                            <input type="file" class="form-control" id="imagen" name="fileimg" aria-describedby="imagehelp">
+                                            <input type="file" class="form-control" id="imagen" name="fileimg" aria-describedby="imagehelp" required>
                                           </div>
                                       </div>
                                       <div class="modal-footer">
                                           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                          <button type="button" class="btn btn-primary">Subir</button>
+                                          <button type="submit" class="btn btn-primary">Subir</button>
                                       </div>
                                     </form>
                                 </div>
@@ -80,5 +80,9 @@
             <div class="row" id="content_books"></div>
         </div>
     </div>
-    
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 {% endblock %}

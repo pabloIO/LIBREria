@@ -2,10 +2,9 @@
 const API = 'http://' + window.location.host + '/api/v1';
 
 const getBooks = function(){
-  console.log('hey')
   $.ajax({
     method: 'GET',
-    url: `${API}/libros`
+    url: `${API}/libros/page/1`
   }).done(function(res){
     if(res.success){
       addBookDom(res.books);
@@ -54,9 +53,9 @@ function formato_item(titulo, autor, descripcion, img, book, licencia){
     if (licencia == undefined){
 	licenciaIcon = "";
     } else if (licencia == "Creative Commons"){
-	licenciaIcon = '<p class="licencia"><a href="/licencias"><i class="fab fa-creative-commons"></i></a></p>'
+	licenciaIcon = '<p class="licencia"><a href="/licencias" data-toggle="tooltip" title="Creative Commons"><i class="fab fa-creative-commons"></i></a></p>'
     } else {
-	licenciaIcon = '<p class="licencia"><a href="/licencias"><i class="fab fa-creative-commons-share"></i></a></p>'
+	licenciaIcon = '<p class="licencia"><a href="/licencias" data-toggle="tooltip" title="Dominio público"><i class="fab fa-creative-commons-share"></i></a></p>'
     };
     let contenido_item =
         `<div class="col-md-4 col-sm-4">
