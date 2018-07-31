@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block title %}LIBREría{% endblock %}
+{% block js %}
+<script src="{{ url_for('static', filename = 'assets/js/LIBREria.js')}}"></script>
+{% endblock %}
 {% block content %}
 
     <div class="content-wrapper">
@@ -62,11 +65,11 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                            <form role="form page-head-line">
+                            <form role="form page-head-line" id="filterBooks">
                                 <div class="form-group has-feedback">
                                     <input type="text"
                                         class="form-control input-search"
-                                        id="warning"
+                                        id="criteria"
                                         placeholder="Buscar T&iacute;tulo o Autor"/>
                                     <input type="reset"
                                         id="search_clear"
@@ -79,9 +82,18 @@
             </div>
             <div class="row" id="content_books"></div>
         </div>
+	<div class="container">
+	    <div class="col-md-12">
+		<div id="more_books">
+		    <button type="button" id="nextResults" class="btn btn-upload hiddenButton">Más resultados</button>
+		    <button type="button" id="nextPage" class="btn btn-upload">Más libros</button>
+		</div>
+	    </div>
+	</div>
     </div>
-<script>
-    $(document).ready(function(){
+    <script>
+    document.addEventListener("DOMContentLoaded",
+    function(){
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>

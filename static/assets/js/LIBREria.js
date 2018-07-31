@@ -1,13 +1,16 @@
 'use strict';
 const API = 'http://' + window.location.host + '/api/v1';
+let page = 1;
 
-const getBooks = function(){
+const getBooks = function(page){
   $.ajax({
     method: 'GET',
-    url: `${API}/libros/page/1`
+    url: `${API}/libros/page/${page}`
   }).done(function(res){
     if(res.success){
       addBookDom(res.books);
+      if (res.books.length < 24){	document.getElementById('nextPage').classList.add('hiddenButton');
+      }
     }else{
       alert('Hubo un problema al cargar los libros');
     }
@@ -77,5 +80,69 @@ function formato_item(titulo, autor, descripcion, img, book, licencia){
     return contenido_item;
 }
 
+const removeBooksDom = function(){
+  const currentBooks = document.getElementById('content_books');
+  while (currentBooks.firstChild) {
+    currentBooks.removeChild(currentBooks.firstChild);
+  }
+  contador_grupos = contador_item = 0;
+};
 
-getBooks();
+const searchInput = function(){
+document.getElementById('filterBooks').addEventListener('submit', function(e) {
+    filterBooks(document.getElementById('criteria').value);
+    e.preventDefault();
+}, false);
+};
+
+let searchPages;
+let thisSearchPage;
+let searchResults;
+
+const filterBooks = function(criteria){
+  removeBooksDom();
+  $.ajax({
+    method: 'GET',
+    url: `${API}/libros/search/${criteria}`
+  }).done(function(res){
+    if(res.success){
+      searchResults = res.books;
+      thisSearchPage = 1;
+      addBookDom(searchResults.slice(0, 24));
+      document.getElementById('nextPage').classList.add('hiddenButton');
+      searchPages = Math.ceil(searchResults.length/24);
+      if (searchPages > 1){
+	document.getElementById('nextResults').classList.remove('hiddenButton');
+      }
+    }else{
+      alert('Hubo un problema al cargar los libros');
+    }
+  });
+}
+
+const nextResults = function(){
+  document.getElementById('nextResults').addEventListener('click', function(e){
+    let nextSearchPage = thisSearchPage + 1
+    addBookDom(searchResults.slice(thisSearchPage*24, nextSearchPage*24));
+    thisSearchPage = nextSearchPage;
+    if (thisSearchPage == searchPages){
+      	document.getElementById('nextResults').classList.add('hiddenButton')
+    }
+  })
+};
+
+const nextPage = function(){
+  document.getElementById('nextPage').addEventListener('click', function(e) {
+    page++;
+    getBooks(page);
+  })
+};
+
+const pageButtons = function(){
+  nextResults();
+  nextPage();
+}
+
+getBooks(page);
+searchInput();
+pageButtons()
