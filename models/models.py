@@ -48,4 +48,13 @@ class Comentarios(db.Model):
     ## Define back relation with Sesion
     # sesion = db.relationship('Sesion', backref="sesion", lazy=True)
 
+class Poema(db.Model):
+    __tablename__ = 'poema'
+    id = db.Column(db.Integer, primary_key=True)
+    verso = db.Column(db.Text, nullable=False)
+    activo = db.Column(db.Boolean, nullable=False, default=True)
+    fecha_creacion = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    fecha_actualizacion = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+
 db.create_all()

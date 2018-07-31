@@ -12,8 +12,11 @@ db = SQLAlchemy(app)
 
 cors = CORS(app, resources={r"/login": {"origins": "http://localhost:3000"}})
 
-from controllers import libros_ctrl
+from controllers import libros_ctrl, poem_ctrl
 
+#############################
+####### VIEWS ROUTES ########
+#############################
 @app.route("/")
 def main():
     return render_template('index.html')
@@ -34,7 +37,13 @@ def upload_success():
 @app.route("/libro-error")
 def upload_fail():
     return render_template('libro-error.html')
-##
+#############################
+#############################
+#############################
+
+#############################
+####### BOOKS ROUTES ########
+#############################
 @app.route(env['API_VERSION'] + "/libros/page/<page_num>", methods=['GET'])
 def books(page_num):
     return libros_ctrl.LibrosCtrl.all(page_num, db, Response)
@@ -50,7 +59,18 @@ def book(book_id):
 @app.route(env['API_VERSION'] + "/libro/upload", methods=['POST', 'GET'])
 def upload_book():
     return libros_ctrl.LibrosCtrl.uploadBook(db, request, Response)
+#############################
+#############################
+#############################
 
+#############################
+####### POEM ROUTES ########
+#############################
+
+
+#############################
+#############################
+#############################
 
 # @app.route("/chat_room")
 # def chat_room():
