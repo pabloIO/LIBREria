@@ -8,6 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="LIBREria" />
     <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="../static/icon/icon.ico">
     <link href="{{ url_for('static', filename = 'assets/css/bootstrap.css') }} " rel="stylesheet" />
     <link href="{{ url_for('static', filename = 'assets/css/style.css') }}" rel="stylesheet" />
     <link href="{{ url_for('static', filename = 'assets/css/LIBREria.css') }}" rel="stylesheet" />
@@ -35,8 +36,9 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                          <li><a class="link-menu" href="/">Inicio</a></li>
+                            <li><a class="link-menu" href="/">Inicio</a></li>
                             <li><a class="link-menu" href="/acerca">¿Qué es la LIBREría?</a></li>
+                            <li><a class="link-menu" href="/universo">uniVERSOS</a></li>
                             <li><a class="link-menu" href="https://github.com/pabloIO/LIBREria">Contribuye código</a></li>
                         </ul>
                     </div>

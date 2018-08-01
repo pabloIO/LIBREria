@@ -25,6 +25,10 @@ def main():
 def about():
     return render_template('about.html')
 
+@app.route("/universo")
+def universe():
+    return render_template('universe.html')
+
 @app.route("/licencias")
 def licencias():
     return render_template('licencias.html')
@@ -37,6 +41,11 @@ def upload_success():
 @app.route("/libro-error")
 def upload_fail():
     return render_template('libro-error.html')
+
+##Redirección correcta al subir verso en universos.html
+@app.route("/verso-exito")
+def upload_poem_success():
+    return render_template('universe.html')
 #############################
 #############################
 #############################
@@ -67,6 +76,15 @@ def upload_book():
 ####### POEM ROUTES ########
 #############################
 
+##Ruta que devuelve el objeto JSON con el contenido de la tabla <Poema>
+@app.route(env['API_VERSION'] + "/poems/page", methods=['GET'])
+def poema_lineas():
+    return poem_ctrl.PoemCtrl.all(db, Response)
+
+##Ruta que agrega una nueva tupla a la tabla <Poema>
+@app.route(env['API_VERSION'] + "/poems/upload", methods=['POST'])
+def upload_poem():
+    return poem_ctrl.PoemCtrl.uploadPoem(db, request, Response)
 
 #############################
 #############################
