@@ -8,27 +8,21 @@
 <div class="content-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <h1 class="page-head-line">uniVERSOS</h1>
-      </div>
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8 col-md-offset-2 poema-instrucciones">
 
-        <p>
-          ¿Te gusta improvisar?, ¿Sientes aquella inspiraci&oacute;n por crear arte?, ¿Necesitas un espacio para expresar tus sentimientos?
-          <strong>uniVERSOS</strong> en un pequeño gran poema del cual todos podemos ser parte, difundir conocimiento tambien es crear el mismo, es por esto que hemos dedicado un espacio para hacer arte; escribir un todo entre todos es aquella representación de lo que significa LIBREria.
-        </p>
-        
-        <p>
-          A continuaci&oacute;n apreciar&aacute;s las &uacute;ltimas cinco l&iacute;neas del poema que todos estamos creando, escribe tu aporte, pensamiento, verso o rima y se parte de la inspiración por el LIBRE conocimiento.
-        </p>
+        <p id="p1">hagamos un poema entre todos</p>
+	<p id="p2">te mostramos los últimos 5 versos</p>
+	<p id="p3" class="escribes">tú escribes el próximo</p>
+	<p id="p4"><span id="un-v">un verso</span><span id="mil-v">mil versos</span><span id="uni-V">uniVERSOS</span></p>
+	<p id="p5">el poema será publicado el día final de la feria</p>
 	
       </div>
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8 col-md-offset-2 poem-container">
           <div class="col-md-12" id="content_poem">
             
           </div>
       </div>
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8 col-md-offset-2 composition-container">
           <div class="col-md-12">
               <form class="" action="{{ url_for('upload_poem') }}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
@@ -36,12 +30,13 @@
                             class="form-control" 
                             id="verse" 
                             name="verse" 
-                            placeholder="Agregue aqu&iacute; su aporte, pensamiento, verso o rima" 
+                            placeholder="Las rosas son rojas ..." 
                             required
                     >
                   </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Agregar a uniVERSOS</button>
+                <div class="versePublish">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i></button>
+		    <p>Publicar</p>
                   </div>
               </form>
           </div>
