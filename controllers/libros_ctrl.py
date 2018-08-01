@@ -11,9 +11,11 @@ from werkzeug.utils import secure_filename
 from flask import flash, redirect, url_for, jsonify
 
 ## Chequear que solo existe una extension
-def allowed_file(filename, type):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in (env['ALLOWED_EXTENSIONS_BOOKS'] if type == 'book' else env['ALLOWED_EXTENSIONS_IMG'])
+def allowed_file(file, type):
+    if type == 'img' and file == None:
+        return True
+    return '.' in file.filename and \
+           file.filename.rsplit('.', 1)[1].lower() in (env['ALLOWED_EXTENSIONS_BOOKS'] if type == 'book' else env['ALLOWED_EXTENSIONS_IMG'])
 
 def id_generator(size=150, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
@@ -103,26 +105,28 @@ class LibrosCtrl(object):
     @staticmethod
     def uploadBook(db, request, response):
         print(request.files)
+        print(request.form)
         try:
             res = {
                 'success': False,
             }
             if request.method == 'POST':
-                print('reached1')
-                if 'filebook' not in request.files and 'fileimg' not in request.files:
-                    flash('No existe el archivo')
-                    return redirect(request.url)
+                # print(request.files['fileimg'] == None)
+                if 'filebook' not in request.files:
+                    res['success'] = False
+                    res['msg'] = 'Debe seleccionar un archivo del escrito'
+                    res['code'] = 400
                 bookfile = request.files['filebook']
-                imgfile = request.files['fileimg']
-                if bookfile.filename == '' and imgfile == '':
-                    flash('No se selecciono un archivo')
-                    return redirect(request.url)
-                print('reached2')
-                print(bookfile.filename)
-                print(imgfile.filename)
-                if (bookfile and allowed_file(bookfile.filename, 'book')) and (imgfile and allowed_file(imgfile.filename, 'img')):
+                imgfile = request.files['fileimg'] if 'fileimg' in request.files else None
+                if bookfile.filename == '':
+                    res['success'] = False
+                    res['msg'] = 'Debe seleccionar un archivo del escrito'
+                    res['code'] = 400
+                if (bookfile and allowed_file(bookfile, 'book')) and (imgfile or allowed_file(imgfile, 'img')):
                     bookfilename = uuid.uuid4().hex + secure_filename(bookfile.filename)
-                    imgfilename = uuid.uuid4().hex + secure_filename(imgfile.filename)
+                    imgfilename = uuid.uuid4().hex + secure_filename(imgfile.filename) if imgfile else None
+                    print(imgfilename)
+                    print(bookfilename)
                     newBook = database.Libro(
                         nombre_libro=request.form['book'],
                         genero=request.form['genre'],
@@ -132,14 +136,12 @@ class LibrosCtrl(object):
                         nombre_archivo=bookfilename,
                         imagen=imgfilename,
                     )
-                    print('reached3')
                     bookfile.save(os.path.join(env['UPLOADS_DIR'] + '/books', bookfilename))
-                    imgfile.save(os.path.join(env['UPLOADS_DIR'] + '/images', imgfilename))
+                    if imgfilename != None: imgfile.save(os.path.join(env['UPLOADS_DIR'] + '/images', imgfilename))
                     db.session.add(newBook)
                     db.session.commit()
                     res['success'] = True
                     res['route'] = 'libro-exito'
-                    return response(json.dumps(res), mimetype='application/json')
                 else:
                     print('err')
                     res['success'] = False
@@ -148,7 +150,6 @@ class LibrosCtrl(object):
             else:
                 res['success'] = True
                 res['route'] = 'libro-exito'
-                return response(json.dumps(res), mimetype='application/json')
         except Exception as e:
             print(e)
             db.session.rollback()

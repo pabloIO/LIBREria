@@ -163,6 +163,8 @@ const uploadBook = function(){
       method: 'POST',
       url: `${API}/libro/upload`,
       data: form_data,
+      processData: false,
+      contentType: false,
   }).done(function(res){
     if(!res.success && res.code == 400) alert(res.msg);
     else window.location.href = `${ROOT}/${res.route}`;
