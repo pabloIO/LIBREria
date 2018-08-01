@@ -28,7 +28,6 @@ const viewParcialPoem = function(arr){
     else{
         i = contador;
     }
-    $(`#content_poem`).append(`<h1>...</h1>`);
 
     for (i; i < arr.length; i++) {
         $(`#content_poem`).append(
@@ -37,7 +36,6 @@ const viewParcialPoem = function(arr){
             </h4>`
         );
     }
-    $(`#content_poem`).append(`<h1>...</h1>`);
 }
 
 getPoems();
