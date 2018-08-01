@@ -151,9 +151,6 @@ const assignUrlToForm = function(){
 }
 
 const uploadBook = function(){
-  // console.log($('#uploadBook'));
-  // return;
-  // console.log($( '#filebook' )[0].files[0])
   var form_data = new FormData();
   form_data.append('author', $('#autor').val() );
   form_data.append('book', $('#libro').val() );
@@ -162,10 +159,6 @@ const uploadBook = function(){
   form_data.append('licence', $('#lice').val() );
   form_data.append('filebook',  $( '#filebook' )[0].files[0]);
   form_data.append('fileimg',  $( '#imagen' )[0].files[0]);
-  // console.log($( '#imagen' )[0].files[0]);
-  // return;
-  // console.log(form_data)
-  // return;
   $.ajax({
       method: 'POST',
       url: `${API}/libro/upload`,
