@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Donaciones{% endblock %}
+{% block js %}
+<script src="{{ url_for('static', filename = 'assets/js/Bibliotecas.js')}}"></script>
+{% endblock %}
+{% block content %}
+
+<div class="content-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="page-head-line">Bibliotecas de colaboradores</h1>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <img src="{{ url_for('static', filename = 'assets/img/logoBBB.jpg')}}" alt="">
+        <div class="row" id="content_bbb"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script></script>
+
+{% endblock %}

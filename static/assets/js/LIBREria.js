@@ -1,5 +1,6 @@
 'use strict';
 const API = 'http://' + window.location.host + '/api/v1';
+const ROOT = 'http://' + window.location.host;
 let page = 1;
 
 const getBooks = function(page){
@@ -89,10 +90,12 @@ const removeBooksDom = function(){
 };
 
 const searchInput = function(){
-document.getElementById('filterBooks').addEventListener('submit', function(e) {
-    filterBooks(document.getElementById('criteria').value);
-    e.preventDefault();
-}, false);
+  document.getElementById('filterBooks').addEventListener('submit', function(e) {
+      let c = document.getElementById('criteria').value;
+      if(c.trim() == '') getBooks(1);
+      else filterBooks(c);
+      e.preventDefault();
+  }, false);
 };
 
 let searchPages;
@@ -143,6 +146,37 @@ const pageButtons = function(){
   nextPage();
 }
 
+const assignUrlToForm = function(){
+  document.getElementById('uploadBook').setAttribute('action', `${API}/libro/upload` )
+}
+
+const uploadBook = function(){
+  // console.log($('#uploadBook'));
+  // return;
+  // console.log($( '#filebook' )[0].files[0])
+  var form_data = new FormData();
+  form_data.append('author', $('#autor').val() );
+  form_data.append('book', $('#libro').val() );
+  form_data.append('genre', $('#genero').val() );
+  form_data.append('language', $('#idioma').val() );
+  form_data.append('licence', $('#lice').val() );
+  form_data.append('filebook',  $( '#filebook' )[0].files[0]);
+  form_data.append('fileimg',  $( '#imagen' )[0].files[0]);
+  // console.log($( '#imagen' )[0].files[0]);
+  // return;
+  // console.log(form_data)
+  // return;
+  $.ajax({
+      method: 'POST',
+      url: `${API}/libro/upload`,
+      data: form_data,
+  }).done(function(res){
+    if(!res.success && res.code == 400) alert(res.msg);
+    else window.location.href = `${ROOT}/${res.route}`;
+  });
+}
+
 getBooks(page);
 searchInput();
-pageButtons()
+pageButtons();
+// assignUrlToForm();

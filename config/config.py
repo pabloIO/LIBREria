@@ -14,7 +14,7 @@ env = {
     },
     'UPLOADS_DIR': os.path.abspath('static'),
     'ALLOWED_EXTENSIONS_BOOKS': set(['pdf', 'txt', 'doc', 'docx', 'odt', 'epub']),
-    'ALLOWED_EXTENSIONS_IMG': set(['png', 'svg', 'gif', 'jpg']),
+    'ALLOWED_EXTENSIONS_IMG': set(['png', 'svg', 'gif', 'jpg', 'jpeg']),
     'API_VERSION': '/api/v1',
     'MAX_FILE_SIZE': '200Mb',
 }

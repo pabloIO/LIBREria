@@ -18,7 +18,7 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                         <h4 class="modal-title" id="myModalLabel">Sube un libro</h4>
                                     </div>
-                                    <form class="" action="{{ url_for('upload_book') }}" method="POST" enctype="multipart/form-data">
+                                    <form class="" id="uploadBook" enctype="multipart/form-data">
                                       <div class="modal-body">
                                           <blockquote >
                                             <i>La LIBREría tiene como objetivo difundir material bibliógrafico de escritores bolivianos, ayúdanos a difundir tu trabajo.</i>
@@ -57,7 +57,7 @@
                                       </div>
                                       <div class="modal-footer">
                                           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                          <button type="submit" class="btn btn-primary">Subir</button>
+                                          <button type="button" class="btn btn-primary" onclick="uploadBook()">Subir</button>
                                       </div>
                                     </form>
                                 </div>

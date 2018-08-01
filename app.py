@@ -29,6 +29,11 @@ def about():
 def licencias():
     return render_template('licencias.html')
 
+@app.route("/bibliotecas")
+def bibliotecas():
+    return render_template('bibliotecas.html')
+
+
 ## CREAR ESTAS DOS PAGINAS
 @app.route("/libro-exito")
 def upload_success():

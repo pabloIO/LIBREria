@@ -102,11 +102,15 @@ class LibrosCtrl(object):
 
     @staticmethod
     def uploadBook(db, request, response):
-        print(request.form)
+        # print(request.form)
         print(request.files)
-        # return
+        # return 'mmmm reached'
         try:
+            res = {
+                'success': False,
+            }
             if request.method == 'POST':
+                print('reached1')
                 if 'filebook' not in request.files and 'fileimg' not in request.files:
                     flash('No existe el archivo')
                     return redirect(request.url)
@@ -115,6 +119,9 @@ class LibrosCtrl(object):
                 if bookfile.filename == '' and imgfile == '':
                     flash('No se selecciono un archivo')
                     return redirect(request.url)
+                print('reached2')
+                print(bookfile.filename)
+                print(imgfile.filename)
                 if (bookfile and allowed_file(bookfile.filename, 'book')) and (imgfile and allowed_file(imgfile.filename, 'img')):
                     bookfilename = uuid.uuid4().hex + secure_filename(bookfile.filename)
                     imgfilename = uuid.uuid4().hex + secure_filename(imgfile.filename)
@@ -128,6 +135,7 @@ class LibrosCtrl(object):
                         nombre_archivo=bookfilename,
                         imagen=imgfilename,
                     )
+                    print('reached3')
                     bookfile.save(os.path.join(env['UPLOADS_DIR'] + '/books', bookfilename))
                     imgfile.save(os.path.join(env['UPLOADS_DIR'] + '/images', imgfilename))
                     # return redirect(url_for('uploaded_file',
@@ -135,15 +143,30 @@ class LibrosCtrl(object):
                     db.session.add(newBook)
                     db.session.commit()
                     # flash('Su archivo se subio con exito')
-                    flash('Libro subido con éxito')
+                    # flash('Libro subido con éxito')
                     # redirigir a una pagina que mencione que el libro se subio con exito
-                    return redirect(url_for('upload_success'))
+                    # return redirect(url_for('upload_success'))
+                    res['success'] = True
+                    res['route'] = 'libro-exito'
+                    return response(json.dumps(res), mimetype='application/json')
+                else:
+                    print('err')
+                    res['success'] = False
+                    res['msg'] = 'Formato no aceptado'
+                    res['code'] = 400
             else:
-                flash('Libro subido con éxito')
-                return redirect(url_for('upload_success'))
+                # flash('Libro subido con éxito')
+                # return redirect(url_for('upload_success'))
+                # return 'libro subido'
+                res['success'] = True
+                res['route'] = 'libro-exito'
+                return response(json.dumps(res), mimetype='application/json')
         except Exception as e:
             print(e)
             db.session.rollback()
-            flash('Hubo un error al cargar el archivo')
+            res['route'] = 'libro-error'
+            # flash('Hubo un error al cargar el archivo')
             # redirigir a una pagina que mencione que el libro no se subio con exito
-            return redirect(url_for('upload_fail'))
+            # return redirect(url_for('upload_fail'))
+        finally:
+            return response(json.dumps(res), mimetype='application/json')
