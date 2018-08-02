@@ -1,6 +1,10 @@
 # base de datos
-database/libreria.db
 database/*.db
+local_data/
+models/__pycache__/
+__pycache__/
+static/assets/node_modules/
+
 
 # entornos virtuales python
 venv/
