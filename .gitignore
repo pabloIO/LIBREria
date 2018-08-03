@@ -4,7 +4,8 @@ local_data/
 models/__pycache__/
 __pycache__/
 static/assets/node_modules/
-
+static/books/
+static/images/
 
 # entornos virtuales python
 venv/
