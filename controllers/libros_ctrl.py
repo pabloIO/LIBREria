@@ -33,7 +33,7 @@ class LibrosCtrl(object):
                 'success': False,
             }
             total = database.Libro.query.filter(database.Libro.activo == 1)
-            books = database.Libro.query.filter(database.Libro.activo == 1).paginate(page=int(page_num), per_page=24).items
+            books = database.Libro.query.filter(database.Libro.activo == 1).order_by(database.Libro.fecha_creacion.desc()).paginate(page=int(page_num), per_page=24).items
             if books == None:
                 res['books'] = []
             else:
