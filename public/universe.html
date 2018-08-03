@@ -1,50 +1,29 @@
 {% extends "base.html" %}
 {% block title %}uniVERSOS{% endblock %}
 {% block js %}
-  <script src="{{ url_for('static', filename = 'assets/js/uniVERSOS.js')}}"></script>
+<script src="{{ url_for('static', filename = 'assets/js/uniVERSOS.js')}}"></script>
 {% endblock %}
 {% block content %}
 
 <div class="content-wrapper">
   <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 poema-instrucciones">
+    <div class="row justify-content-start">
 
-        <p id="p1">hagamos un poema entre todos</p>
-	<p id="p2">te mostramos los últimos 5 versos</p>
-	<p id="p3" class="escribes">tú escribes el próximo</p>
-	<p id="p4"><span id="un-v">un verso</span><span id="mil-v">mil versos</span><span id="uni-V">uniVERSOS</span></p>
-	<p id="p5">el poema será publicado el día final de la feria</p>
-	
+      <p class="poemInstructions">Hagamos un poema entre todos.</p>
+      <p class="poemInstructions">Te mostramos los últimos 5 versos y tú escribes el próximo.</p>
+      
+      <div id="poem">
+	<div id="content_poem">
+	</div>
+	<form id="newVerso">
+	  <input id="publishVerso" class="form-control-feedback" value="➤" type="submit">
+          <input  type="text" class="form-control" id="verse" maxlength="140" required>
+        </form>
       </div>
-      <div class="col-md-8 col-md-offset-2 poem-container">
-          <div class="col-md-12" id="content_poem">
-            
-          </div>
-      </div>
-      <div class="col-md-8 col-md-offset-2 composition-container">
-          <div class="col-md-12">
-              <form class="" action="{{ url_for('upload_poem') }}" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <input  type="text" 
-                            class="form-control" 
-                            id="verse" 
-                            name="verse" 
-                            placeholder="Las rosas son rojas ..." 
-                            required
-                    >
-                  </div>
-                <div class="versePublish">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i></button>
-		    <p>Publicar</p>
-                  </div>
-              </form>
-          </div>
-      </div>
-
     </div>
+
+    <p class="poemInstructions">El poema será revelado el día final de la feria</p>
   </div>
 </div>
-
 
 {% endblock %}
