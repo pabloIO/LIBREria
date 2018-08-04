@@ -171,14 +171,12 @@ body{
     margin-top: 22px !important;
 }
 
-.main-menu-toggle{
-    position: absolute;
-    right: 0;
-    background: rgb(141, 236, 222);
+.navbar-toggle{
+    background: rgb(141, 236, 222) !important;
     border: none !important;
 }
 
-.main-menu-toggle:hover, .main-menu-toggle:focus{
+.navbar-toggle:hover, .navbar-toggle:focus{
     background: #5bd2c7 !important;
 }
 
@@ -262,10 +260,8 @@ footer .container {
 }
 
 .navbar-header img{
-    width: 100%;
-    max-height: 400px;
-    min-width: 200px;
-    object-fit: contain;
+    width: auto !important;
+    height: 400px !important;
 }
 
 .navbar-nav {
@@ -410,6 +406,10 @@ a{
     color: #908f9b;
     text-align: center;
     padding: 10px 0 0 0;
+}
+
+.licencia a{
+    padding: 0 3%;
 }
 
 .licenciaContainer{
@@ -630,7 +630,7 @@ a{
     background-color: #fffaf7;
     padding: 0px 0px;
     text-align: center;
-    color: #f8ac95;
+    color: #a87b73;
     border-radius: 5px;
     border: 1px solid #f8e8df;
     margin: 21px 15%;
@@ -648,6 +648,10 @@ a{
 
 .push{
     animation: push 0.5s !important;
+}
+
+.userVerso{
+    color: #81bcb6 !important;
 }
 
 #verse{
@@ -689,6 +693,7 @@ a{
     font-size: 1.8rem;
 }
 
+<<<<<<< HEAD
 .logo-library{
   width: 300px;
   height: auto;
@@ -701,3 +706,5 @@ a{
     margin-right: auto;
     margin-bottom: 2rem;
 }
+=======
+>>>>>>> e60ad8dad100c41ab57fe826541a5bb0bd25e3e7

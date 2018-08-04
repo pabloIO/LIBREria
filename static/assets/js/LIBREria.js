@@ -57,9 +57,9 @@ function formato_item(titulo, autor, descripcion, img, book, licencia){
     if (licencia == undefined){
 	licenciaIcon = "";
     } else if (licencia == "Creative Commons"){
-	licenciaIcon = '<p class="licencia"><a href="/licencias" data-toggle="tooltip" title="Creative Commons"><i class="fab fa-creative-commons"></i></a></p>'
+	licenciaIcon = "fab fa-creative-commons"
     } else {
-	licenciaIcon = '<p class="licencia"><a href="/licencias" data-toggle="tooltip" title="Dominio público"><i class="fab fa-creative-commons-share"></i></a></p>'
+	licenciaIcon = "fab fa-creative-commons-share"
     };
     let contenido_item =
         `<div class="col-md-4 col-sm-4">
@@ -74,7 +74,10 @@ function formato_item(titulo, autor, descripcion, img, book, licencia){
                         <a title="Leer libro" href="/static/books/${book}" class="btn btn-primary btn-upload" download><i class="fab fa-readme"></i></a>
                     </div>
                 </div>
-                ${licenciaIcon}
+                <p class="licencia">
+<a href="/licencias" data-toggle="tooltip" title="${licencia}"><i class="${licenciaIcon}"></i></a>
+<a href="#" title="Información y Denuncia"><i class="fas fa-info-circle"></i></a>
+                </p>
             </div>
         </div>`;
 
