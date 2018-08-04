@@ -2,6 +2,7 @@
 const API = 'http://' + window.location.host + '/api/v1';
 const ROOT = 'http://' + window.location.host;
 let page = 1;
+var book_id = null;
 
 const getBooks = function(page){
   $.ajax({
@@ -35,7 +36,7 @@ const addBookDom = function(arr){
           contador_grupos++;
           $(`#content_books`).append(
               `<div class="row" id="content_group_${contador_grupos}">
-                  ${formato_item(element.name, element.author, element.descripcion, element.image, element.file, element.licencia)}
+                  ${formato_item(element.name, element.author, element.descripcion, element.image, element.file, element.licencia, element.id)}
               </div>`
           );
           contador_item++;
@@ -43,7 +44,7 @@ const addBookDom = function(arr){
       }else{
           //De existir el primer item en el grupo div n se crean los 2 restantes
           $(`#content_group_${contador_grupos}`).append(
-            formato_item(element.name, element.author, element.descripcion, element.image, element.file, element.licencia)
+            formato_item(element.name, element.author, element.descripcion, element.image, element.file, element.licencia, element.id)
           );
           contador_item++;
       }
@@ -52,7 +53,7 @@ const addBookDom = function(arr){
 
 //formato_item: devuelve item a item el recorrido del objeto JSON
 
-function formato_item(titulo, autor, descripcion, img, book, licencia){
+function formato_item(titulo, autor, descripcion, img, book, licencia, id){
     let licenciaIcon;
     if (licencia == undefined){
 	licenciaIcon = "";
@@ -76,13 +77,13 @@ function formato_item(titulo, autor, descripcion, img, book, licencia){
                 </div>
                 <p class="licencia">
 <a href="/licencias" data-toggle="tooltip" title="${licencia}"><i class="${licenciaIcon}"></i></a>
-<a href="#" title="Información y Denuncia"><i class="fas fa-info-circle"></i></a>
                 </p>
             </div>
         </div>`;
 
     return contenido_item;
 }
+// <a href="#" onclick="openDenounce(${id})" data-toggle="modal" data-target="#denounce" title="Información y Denuncia"><i class="fas fa-info-circle"></i></a>
 
 const removeBooksDom = function(){
   const currentBooks = document.getElementById('content_books');
@@ -104,6 +105,35 @@ const searchInput = function(){
 let searchPages;
 let thisSearchPage;
 let searchResults;
+
+const openDenounce = function(id){
+  book_id = id;
+  console.log(book_id)
+}
+
+const denounceBook = function(){
+  let desc = document.getElementById('desc');
+  $.ajax({
+    method: 'POST',
+    // contentType: "application/json",
+    url: `${API}/libros/denounce`,
+    data: {desc: desc, id: book_id},
+    // dataType: 'json'
+  }).done(function(res){
+    if(res.success){
+      searchResults = res.books;
+      thisSearchPage = 1;
+      addBookDom(searchResults.slice(0, 24));
+      document.getElementById('nextPage').classList.add('hiddenButton');
+      searchPages = Math.ceil(searchResults.length/24);
+      if (searchPages > 1){
+	document.getElementById('nextResults').classList.remove('hiddenButton');
+      }
+    }else{
+      alert('Hubo un problema al cargar los libros');
+    }
+  });
+}
 
 const filterBooks = function(criteria){
   removeBooksDom();
