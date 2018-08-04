@@ -24,6 +24,9 @@ const displayPoem = function(versos, status){
 	if (status){
 	    verso.classList.add('push')
 	}
+	if (v.new){
+	    verso.classList.add('userVerso')
+	}
 	poem.appendChild(verso);
     })
 }
@@ -32,7 +35,7 @@ const updatePoem = function(verso){
     while (poem.firstChild) {
 	poem.removeChild(poem.firstChild);
     }
-    versos.push({'verso': verso});
+    versos.push({'verso': verso, 'new': 'user'});
     versos = versos.slice(-5,);
     displayPoem(versos, 'push');
 }
