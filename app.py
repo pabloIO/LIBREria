@@ -73,6 +73,11 @@ def book(book_id):
 @app.route(env['API_VERSION'] + "/libro/upload", methods=['POST', 'GET'])
 def upload_book():
     return libros_ctrl.LibrosCtrl.uploadBook(db, request, Response)
+
+@app.route(env['API_VERSION'] + "/libro/denounce", methods=['POST', 'GET'])
+def denounce_book():
+    return libros_ctrl.LibrosCtrl.denounceBook(db, request, Response)
+
 #############################
 #############################
 #############################

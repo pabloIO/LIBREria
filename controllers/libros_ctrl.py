@@ -10,7 +10,6 @@ import uuid
 from config.config import env
 from werkzeug.utils import secure_filename
 from flask import flash, redirect, url_for, jsonify
-
 ## Chequear que solo existe una extension
 def allowed_file(file, type):
     if type == 'img' and file == None:
@@ -104,15 +103,14 @@ class LibrosCtrl(object):
             res['msg'] = 'Hubo un error al cargar el libro, inténtelo nuevamente'
         finally:
             return response(json.dumps(res), mimetype='application/json')
+
     @staticmethod
     def denounceBook(db, request, response):
         try:
             res = {
                 'success': False,
             }
-            data = request.get_json()
-            print(data)
-            book = database.Libro.get(book_id)
+            book = database.Libro.query.get(request.form['id'])
             book.denuncia_derechos = request.form['desc']
             book.activo = False
             db.session.commit()
@@ -120,7 +118,7 @@ class LibrosCtrl(object):
             res['msg'] = 'El libro que subió acaba de ser denunciado, revisaremos su solicitud, por el momento ha sido dado de baja de la LIBREria, recargue la página para ver los cambios'
         except Exception as e:
             print(e)
-            db.rollback()
+            db.session.rollback()
             res['msg'] = 'Hubo un error al procesar su solicitud, inténtelo nuevamente'
         finally:
             return response(json.dumps(res), mimetype='application/json')

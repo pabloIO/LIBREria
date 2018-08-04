@@ -76,6 +76,7 @@ function formato_item(titulo, autor, descripcion, img, book, licencia, id){
                     </div>
                 </div>
                 <p class="licencia">
+                 <a href="#" onclick="openDenounce(${id})" data-toggle="modal" data-target="#denounce" title="Información y Denuncia"><i class="fas fa-info-circle"></i></a>
 <a href="/licencias" data-toggle="tooltip" title="${licencia}"><i class="${licenciaIcon}"></i></a>
                 </p>
             </div>
@@ -112,26 +113,13 @@ const openDenounce = function(id){
 }
 
 const denounceBook = function(){
-  let desc = document.getElementById('desc');
+  let desc = document.getElementById('desc').value;
   $.ajax({
     method: 'POST',
-    // contentType: "application/json",
-    url: `${API}/libros/denounce`,
+    url: `${API}/libro/denounce`,
     data: {desc: desc, id: book_id},
-    // dataType: 'json'
   }).done(function(res){
-    if(res.success){
-      searchResults = res.books;
-      thisSearchPage = 1;
-      addBookDom(searchResults.slice(0, 24));
-      document.getElementById('nextPage').classList.add('hiddenButton');
-      searchPages = Math.ceil(searchResults.length/24);
-      if (searchPages > 1){
-	document.getElementById('nextResults').classList.remove('hiddenButton');
-      }
-    }else{
-      alert('Hubo un problema al cargar los libros');
-    }
+    alert(res.msg);
   });
 }
 
@@ -184,6 +172,7 @@ const assignUrlToForm = function(){
 }
 
 const uploadBook = function(){
+  $('#loading').show('slow')
   var form_data = new FormData();
   form_data.append('author', $('#autor').val() );
   form_data.append('book', $('#libro').val() );
@@ -199,11 +188,14 @@ const uploadBook = function(){
       processData: false,
       contentType: false,
   }).done(function(res){
+    $('#loading').hide()
     if(!res.success && res.code == 400) alert(res.msg);
     else window.location.href = `${ROOT}/${res.route}`;
   });
 }
 
+
+$('#loading').hide()
 getBooks(page);
 searchInput();
 pageButtons();
