@@ -53,6 +53,23 @@ https://stackoverflow.com/questions/27492726/fa-icon-in-bootstrap-input-catch-ho
 /*
 **************
 */
+.btn-libraries{
+  margin-bottom: 20px;
+}
+
+.btn-library{
+    background: #bee0dd;
+    color: white;
+    font-size: 12pt;
+    transition: 0.3s;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.btn-library:hover, .btn-library:focus{
+    background: #5bd2c7;
+    color: white;
+    background: #5bd2c7;
+}
 
 .btn-upload{
     width: 100%;
@@ -180,7 +197,7 @@ header{
 .panel-body-background{
     background: rgb(251, 247, 244) !important;
     color: #4f5a76 !important;
-    
+
 }
 
 .panel-footer-background{
@@ -306,11 +323,11 @@ footer .container {
 	font-size: 1.3rem;
 	line-height: 2rem;
     }
-    
+
     #poem{
 	margin: 21px 3% !important;
     }
-    
+
     #content_poem p{
 	font-size: 1.4rem !important;
     }
@@ -672,6 +689,10 @@ a{
     font-size: 1.8rem;
 }
 
+.logo-library{
+  width: 300px;
+  height: auto;
+}
 /* =============================================================
    HELPERS
  ============================================================ */
