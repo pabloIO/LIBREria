@@ -21,11 +21,11 @@ from controllers import libros_ctrl, poem_ctrl
 def main():
     return render_template('index.html')
 
-@app.route("/acerca")
+@app.route("/nosotros")
 def about():
     return render_template('about.html')
 
-@app.route("/universo")
+@app.route("/poema")
 def universe():
     return render_template('universe.html')
 
@@ -73,6 +73,11 @@ def book(book_id):
 @app.route(env['API_VERSION'] + "/libro/upload", methods=['POST', 'GET'])
 def upload_book():
     return libros_ctrl.LibrosCtrl.uploadBook(db, request, Response)
+
+@app.route(env['API_VERSION'] + "/libro/denounce", methods=['POST', 'GET'])
+def denounce_book():
+    return libros_ctrl.LibrosCtrl.denounceBook(db, request, Response)
+
 #############################
 #############################
 #############################
@@ -87,9 +92,9 @@ def poema_lineas():
     return poem_ctrl.PoemCtrl.all(db, Response)
 
 ##Ruta que agrega una nueva tupla a la tabla <Poema>
-@app.route(env['API_VERSION'] + "/poems/upload", methods=['POST'])
-def upload_poem():
-    return poem_ctrl.PoemCtrl.uploadPoem(db, request, Response)
+@app.route(env['API_VERSION'] + "/poems/upload/<verso>", methods=['POST'])
+def upload_poem(verso):
+    return poem_ctrl.PoemCtrl.uploadPoem(db, request, verso, Response)
 
 #############################
 #############################

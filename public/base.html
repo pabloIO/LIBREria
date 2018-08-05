@@ -12,7 +12,7 @@
     <link href="{{ url_for('static', filename = 'assets/css/bootstrap.css') }} " rel="stylesheet" />
     <link href="{{ url_for('static', filename = 'assets/css/style.css') }}" rel="stylesheet" />
     <link href="{{ url_for('static', filename = 'assets/css/LIBREria.css') }}" rel="stylesheet" />
-    <link href="{{ url_for('static', filename = 'assets/node_modules/@fortawesome/fontawesome-free/css/all.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename = 'assets/css/fontawesome.min.css') }}" rel="stylesheet" />
 </head>
 
 <body>
@@ -20,7 +20,7 @@
         <div class="container center-block">
             <div class="navbar-header">
                 <div class="col-md-12">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <button type="button" class="main-menu-toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -36,11 +36,10 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a class="link-menu" href="/">Inicio</a></li>
-                            <li><a class="link-menu" href="/acerca">¿Qué es la LIBREría?</a></li>
+                          <li><a class="link-menu" href="/">Libros</a></li>
+			  <li><a class="link-menu" href="/poema">Poema</a></li>
+                            <li><a class="link-menu" href="/nosotros">Nosotros</a></li>
                             <li><a class="link-menu" href="/bibliotecas">Bibliotecas</a></li>
-                            <li><a class="link-menu" href="/universo">uniVERSOS</a></li>
-                            <li><a class="link-menu" href="https://github.com/pabloIO/LIBREria">Contribuye código</a></li>
                         </ul>
                     </div>
                 </div>
@@ -55,14 +54,13 @@
             <div class="row">
               <div class="col-md-12">
                   <a href="https://github.com/pabloIO/LIBREria" class="repo-link"><i class="fab fa-github"></i>  Contribuye código</a>
-                  <a href="https://twitter.com/LIBREria_bo" class="repo-link"><i class="fab fa-twitter"></i>  Síguenos en </a>
+                <a href="https://twitter.com/LIBREria_bo" class="repo-link"><i class="fab fa-twitter"></i>  Síguenos</a>
 		  <p>
 		    <div>
 		      <strong>Con apoyo de</strong>
 		    </div>
 		    <a href="https://lapaz.laotrared.net" target="_blank"><img src="{{ url_for('static', filename = 'assets/img/laotrared_header.png')}}"></a>
-		  </p>
-
+		  </p>       
               </div>
             </div>
         </div>

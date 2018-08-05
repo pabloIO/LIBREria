@@ -2,6 +2,7 @@
 const API = 'http://' + window.location.host + '/api/v1';
 const ROOT = 'http://' + window.location.host;
 let page = 1;
+var book_id = null;
 
 const getBooks = function(page){
   $.ajax({
@@ -35,7 +36,7 @@ const addBookDom = function(arr){
           contador_grupos++;
           $(`#content_books`).append(
               `<div class="row" id="content_group_${contador_grupos}">
-                  ${formato_item(element.name, element.author, element.descripcion, element.image, element.file, element.licencia)}
+                  ${formato_item(element.name, element.author, element.descripcion, element.image, element.file, element.licencia, element.id)}
               </div>`
           );
           contador_item++;
@@ -43,7 +44,7 @@ const addBookDom = function(arr){
       }else{
           //De existir el primer item en el grupo div n se crean los 2 restantes
           $(`#content_group_${contador_grupos}`).append(
-            formato_item(element.name, element.author, element.descripcion, element.image, element.file, element.licencia)
+            formato_item(element.name, element.author, element.descripcion, element.image, element.file, element.licencia, element.id)
           );
           contador_item++;
       }
@@ -52,14 +53,14 @@ const addBookDom = function(arr){
 
 //formato_item: devuelve item a item el recorrido del objeto JSON
 
-function formato_item(titulo, autor, descripcion, img, book, licencia){
+function formato_item(titulo, autor, descripcion, img, book, licencia, id){
     let licenciaIcon;
     if (licencia == undefined){
 	licenciaIcon = "";
     } else if (licencia == "Creative Commons"){
-	licenciaIcon = '<p class="licencia"><a href="/licencias" data-toggle="tooltip" title="Creative Commons"><i class="fab fa-creative-commons"></i></a></p>'
+	licenciaIcon = "fab fa-creative-commons"
     } else {
-	licenciaIcon = '<p class="licencia"><a href="/licencias" data-toggle="tooltip" title="Dominio público"><i class="fab fa-creative-commons-share"></i></a></p>'
+	licenciaIcon = "fab fa-creative-commons-share"
     };
     let contenido_item =
         `<div class="col-md-4 col-sm-4">
@@ -74,12 +75,16 @@ function formato_item(titulo, autor, descripcion, img, book, licencia){
                         <a title="Leer libro" href="/static/books/${book}" class="btn btn-primary btn-upload" download><i class="fab fa-readme"></i></a>
                     </div>
                 </div>
-                ${licenciaIcon}
+                <p class="licencia">
+                 <a href="#" onclick="openDenounce(${id})" data-toggle="modal" data-target="#denounce" title="Información y Denuncia"><i class="fas fa-info-circle"></i></a>
+<a href="/licencias" data-toggle="tooltip" title="${licencia}"><i class="${licenciaIcon}"></i></a>
+                </p>
             </div>
         </div>`;
 
     return contenido_item;
 }
+// <a href="#" onclick="openDenounce(${id})" data-toggle="modal" data-target="#denounce" title="Información y Denuncia"><i class="fas fa-info-circle"></i></a>
 
 const removeBooksDom = function(){
   const currentBooks = document.getElementById('content_books');
@@ -101,6 +106,22 @@ const searchInput = function(){
 let searchPages;
 let thisSearchPage;
 let searchResults;
+
+const openDenounce = function(id){
+  book_id = id;
+  console.log(book_id)
+}
+
+const denounceBook = function(){
+  let desc = document.getElementById('desc').value;
+  $.ajax({
+    method: 'POST',
+    url: `${API}/libro/denounce`,
+    data: {desc: desc, id: book_id},
+  }).done(function(res){
+    alert(res.msg);
+  });
+}
 
 const filterBooks = function(criteria){
   removeBooksDom();
@@ -151,6 +172,7 @@ const assignUrlToForm = function(){
 }
 
 const uploadBook = function(){
+  $('#loading').show('slow')
   var form_data = new FormData();
   form_data.append('author', $('#autor').val() );
   form_data.append('book', $('#libro').val() );
@@ -166,11 +188,14 @@ const uploadBook = function(){
       processData: false,
       contentType: false,
   }).done(function(res){
+    $('#loading').hide()
     if(!res.success && res.code == 400) alert(res.msg);
     else window.location.href = `${ROOT}/${res.route}`;
   });
 }
 
+
+$('#loading').hide()
 getBooks(page);
 searchInput();
 pageButtons();

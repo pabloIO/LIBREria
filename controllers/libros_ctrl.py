@@ -5,11 +5,11 @@ sys.path.append(
 import models.models as database
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.sql.functions import func
+from sqlalchemy import desc
 import uuid
 from config.config import env
 from werkzeug.utils import secure_filename
 from flask import flash, redirect, url_for, jsonify
-
 ## Chequear que solo existe una extension
 def allowed_file(file, type):
     if type == 'img' and file == None:
@@ -33,7 +33,8 @@ class LibrosCtrl(object):
                 'success': False,
             }
             total = database.Libro.query.filter(database.Libro.activo == 1)
-            books = database.Libro.query.filter(database.Libro.activo == 1).paginate(page=int(page_num), per_page=24).items
+            books = database.Libro.query.filter(database.Libro.activo == 1).order_by(desc(database.Libro.id)).paginate(page=int(page_num), per_page=24).items
+            print(books)
             if books == None:
                 res['books'] = []
             else:
@@ -69,7 +70,8 @@ class LibrosCtrl(object):
             # db.session.rollback()
             res['msg'] = 'Hubo un error al cargar el libro, inténtelo nuevamente'
         finally:
-            return response(json.dumps(res), mimetype='application/json')
+            # return response(json.dumps(res), mimetype='application/json')
+            return render_template('book.html', )
 
     @staticmethod
     def searchBook(query_p, db, response):
@@ -103,9 +105,26 @@ class LibrosCtrl(object):
             return response(json.dumps(res), mimetype='application/json')
 
     @staticmethod
+    def denounceBook(db, request, response):
+        try:
+            res = {
+                'success': False,
+            }
+            book = database.Libro.query.get(request.form['id'])
+            book.denuncia_derechos = request.form['desc']
+            book.activo = False
+            db.session.commit()
+            res['success'] = True
+            res['msg'] = 'El libro que subió acaba de ser denunciado, revisaremos su solicitud, por el momento ha sido dado de baja de la LIBREria, recargue la página para ver los cambios'
+        except Exception as e:
+            print(e)
+            db.session.rollback()
+            res['msg'] = 'Hubo un error al procesar su solicitud, inténtelo nuevamente'
+        finally:
+            return response(json.dumps(res), mimetype='application/json')
+
+    @staticmethod
     def uploadBook(db, request, response):
-        print(request.files)
-        print(request.form)
         try:
             res = {
                 'success': False,

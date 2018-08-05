@@ -51,19 +51,23 @@ class PoemCtrl(object):
             return response(json.dumps(res), mimetype='application/json')
 
     @staticmethod
-    def uploadPoem(db, request, response):
-        print(request.form)
+    def uploadPoem(db, request, verso, response):
+        print(request)
         try:
+            res = {
+                'success': True,
+            }
             if request.method == 'POST':
                 newBook = database.Poema(
-                    verso = request.form['verse'],
+                    verso = verso[0:140],
                 )
                 db.session.add(newBook)
                 db.session.commit()
                 flash('Verso agregado con exito a poema')
-                return redirect(url_for('upload_poem_success'))
+                return response(json.dumps(res), mimetype='application/json')
+                # return redirect(url_for('upload_poem_success'))
         except Exception as e:
             print(e)
             db.session.rollback()
             flash('Hubo un error al agregar un nuevo elemento a uniVERSOS')
-            return redirect(url_for('upload_fail'))
+            return response(json.dumps(res), mimetype='application/json')

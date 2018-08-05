@@ -53,6 +53,23 @@ https://stackoverflow.com/questions/27492726/fa-icon-in-bootstrap-input-catch-ho
 /*
 **************
 */
+.btn-libraries{
+  margin-bottom: 20px;
+}
+
+.btn-library{
+    background: #bee0dd;
+    color: white;
+    font-size: 12pt;
+    transition: 0.3s;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.btn-library:hover, .btn-library:focus{
+    background: #5bd2c7;
+    color: white;
+    background: #5bd2c7;
+}
 
 .btn-upload{
     width: 100%;
@@ -178,7 +195,7 @@ header{
 .panel-body-background{
     background: rgb(251, 247, 244) !important;
     color: #4f5a76 !important;
-    
+
 }
 
 .panel-footer-background{
@@ -293,65 +310,24 @@ footer .container {
     	margin: 0% !important;
     }
 
-    .poema-instrucciones p {
-	font-size: 1.5rem !important;
-	margin: 8px !important;
-    }
-
-    .poema-instrucciones span {
-	padding: 6px !important;
-    }
-
-    #un-v {
-	font-size: 1rem !important;
-    }
-
-    #mil-v {
-	font-size: 1.5rem !important;
-    }
-
-    #uni-V {
-	font-size: 2rem !important;
-	font-weight: bold !important;
-    }
-
-    .poem-container {
-	margin-left: 20px !important;
-	margin-right: 20px !important;
-    }
-
-    .content-poem {
-	padding: 0 !important;
-	text-align: center !important;
-    }
-
-    #content_poem h4{
-	font-size: 1.5rem !important;
-    }
-
     .composition-container .form-group {
 	margin-left: 20px !important;
 	margin-right: 20px !important;
     }
 
-    #verse {
-	background-color: #fffef5 !important;
-	border-color: #fffef5 !important;
-	padding: 20px 10px !important;
-	font-size: 1.5rem !important;
-	margin-bottom: 30px;
+    .poemInstructions{
+	font-size: 1.3rem;
+	line-height: 2rem;
     }
 
-    .versePublish button {
-	background-color: #2ed8bb !important;
-	padding: 10px !important;
-	border: none !important;
-	border-radius: 100% !important;
-	height: 65px !important;
-	width: 65px !important;
-	font-size: 3.5rem !important;
+    #poem{
+	margin: 21px 3% !important;
     }
-    
+
+    #content_poem p{
+	font-size: 1.4rem !important;
+    }
+
 }
 
 .repo-link{
@@ -430,6 +406,10 @@ a{
     color: #908f9b;
     text-align: center;
     padding: 10px 0 0 0;
+}
+
+.licencia a{
+    padding: 0 3%;
 }
 
 .licenciaContainer{
@@ -634,115 +614,94 @@ a{
   }
 }
 
-.poema-instrucciones{
-    font-family: RobotoSlab;
+.poemInstructions{
     text-align: center;
+    color: #d3bab2;
+    padding-bottom: 0px;
+    margin: 0px;
 }
 
-.poema-instrucciones p{
-    font-size: 2rem;
-    margin: 15px;
+#escribes{
+    color: #bee0dd;
+    font-size: 1.8rem;
 }
 
-.poema-instrucciones span{
-    padding: 13px
-}
-
-#un-v{
-    font-size: 1.5rem;
-}
-
-#mil-v{
-    font-size: 2rem;
-}
-
-#uni-V{
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-
-.escribes{
-    color: #2ed8bb;
-}
-
-@keyframes fadein2{
-    0%{opacity: 0}
-    66%{opacity: 0}
-    100%{opacity: 1}
-}
-
-#p1{
-    animation-name: fadein2;
-    animation-duration: 0.7s;
-}
-
-#p2{
-    animation-name: fadein2;
-    animation-duration: 1.4s;
-}
-
-#p3{
-    animation-name: burn;
-    animation-duration: 2.1s;
-}
-
-#p4{
-    animation-name: fadein2;
-    animation-duration: 2.8s;
-}
-
-#p5{
-    font-size: 1.4rem;
-    color: #bcbcbc;
-    animation-name: fadein2;
-    animation-duration: 3.5s;
-}
-
-@keyframes burn{
-    0%{opacity: 0; color: #2ed8bb}
-    66%{opacity: 0; color: #00ffd3}
-    100%{opacity: 100; color: #2ed8bb}
-}
-
-.poem-container {
-    background-color: #fffef5;
+#poem {
+    background-color: #fffaf7;
+    padding: 0px 0px;
+    text-align: center;
+    color: #a87b73;
     border-radius: 5px;
-    font-family: RobotoSlab;
-    margin-top: 45px;
-    margin-bottom: 10px;
-    padding: 20px
+    border: 1px solid #f8e8df;
+    margin: 21px 15%;
 }
 
-.composition-container, .composition-container .col-md-12{
-    padding: 0;
+#content_poem p {
+    font-size: 1.6rem;
+    animation: appear 0.5s;
+    position: relative;
+    top: 0px;
+    border-bottom: 1px solid #f8e8df;
+    margin: 0;
+    padding: 8px 8px;
+}
+
+.push{
+    animation: push 0.5s !important;
+}
+
+.userVerso{
+    color: #81bcb6 !important;
 }
 
 #verse{
-    background-color: #fffef5 !important;
-    border-color: #fffef5 !important;
-    padding: 25px;
-    font-size: 2rem;
-    margin-bottom: 30px;
+    text-align: left;
+    color: #81bcb6;
+    padding: 23px 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border: none !important;
+    padding-right: 42.5px;
 }
 
-.versePublish{
-    text-align: center !important;
+#verse::placeholder{
+    color: #bee0dd;
 }
 
-.versePublish p{
-    color: #2ed8bb;
-    font-size: 2rem;
-    padding: 10px;
-    font-family: RobotoSlab;
+#publishVerso {
+    margin: 5px;
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: #bee0dd;
+    pointer-events: visible !important;
 }
 
-.versePublish button {
-	background-color: #2ed8bb;
-	padding: 10px;
-	border: none;
-	border-radius: 100%;
-	height: 80px;
-	width: 80px;
-	font-size: 3.5rem;
+@keyframes appear{
+    0%{opacity: 0}
+    100{opacity: 100}
+}
+
+@keyframes push{
+    0%{top: 47px}
+    100{top: 0px}
+}
+
+#newVerso{
+    position: relative;
+    top: 0px;
+    font-size: 1.8rem;
+}
+
+.logo-library{
+  width: 300px;
+  height: auto;
+}
+/* =============================================================
+   HELPERS
+ ============================================================ */
+.to-center{
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
 }
