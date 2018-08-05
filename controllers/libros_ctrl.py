@@ -81,7 +81,8 @@ class LibrosCtrl(object):
             }
             books = database.Libro.query.filter(
                     database.Libro.autor.like('%{}%'.format(query_p)) |
-                    database.Libro.nombre_libro.like('%{}%'.format(query_p))
+                    database.Libro.nombre_libro.like('%{}%'.format(query_p)),
+                    database.Libro.activo == 1
                     ).all()
             if books == None:
                 res['books'] = []
