@@ -55,6 +55,7 @@ const addBookDom = function(arr){
 
 function formato_item(titulo, autor, descripcion, img, book, licencia, id){
     let licenciaIcon;
+    let tituloDom;
     if (licencia == undefined){
 	licenciaIcon = "";
     } else if (licencia == "Creative Commons"){
@@ -62,11 +63,16 @@ function formato_item(titulo, autor, descripcion, img, book, licencia, id){
     } else {
 	licenciaIcon = "fab fa-creative-commons-share"
     };
+    if (titulo.length > 40) {
+        tituloDom = `<h3 class="smallTitle">${titulo}</h3>`;
+    } else{
+        tituloDom = `<h3>${titulo}</h3>`;
+    };
     let contenido_item =
         `<div class="col-md-4 col-sm-4">
             <div class="panel panel-warning">
                 <div class="panel-heading">
-                    <h3>${titulo}</h3>
+                    ${tituloDom}
                     <p class="autor">${autor}</p>
                 </div>
                 <div class="panel-body panel-body-background">
