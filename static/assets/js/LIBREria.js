@@ -53,7 +53,25 @@ const addBookDom = function(arr){
 
 //formato_item: devuelve item a item el recorrido del objeto JSON
 
+const titleCase = function(string, tipo){
+    if (tipo == 'autor') {
+    const strSplit = string.split(' ');
+    let strFinal = [];
+    let sUp;
+    strSplit.forEach(s => {
+	sUp = s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+	strFinal.push(sUp);
+    });
+	return strFinal.join(' ');
+    } else if (tipo == 'titulo') {
+	return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    };
+}
+
 function formato_item(titulo, autor, descripcion, img, book, licencia, id){
+    let tituloBien = titleCase(titulo, 'titulo');
+    console.log(tituloBien);
+    let autorBien = titleCase(autor, 'autor');
     let licenciaIcon;
     let tituloDom;
     if (licencia == undefined){
@@ -63,21 +81,21 @@ function formato_item(titulo, autor, descripcion, img, book, licencia, id){
     } else {
 	licenciaIcon = "fab fa-creative-commons-share"
     };
-    if (titulo.length > 40) {
-        tituloDom = `<h3 class="smallTitle">${titulo}</h3>`;
+    if (tituloBien.length > 40) {
+        tituloDom = `<h3 class="smallTitle">${tituloBien}</h3>`;
     } else{
-        tituloDom = `<h3>${titulo}</h3>`;
+        tituloDom = `<h3>${tituloBien}</h3>`;
     };
     let contenido_item =
         `<div class="col-md-4 col-sm-4">
             <div class="panel panel-warning">
                 <div class="panel-heading">
                     ${tituloDom}
-                    <p class="autor">${autor}</p>
+                    <p class="autor">${autorBien}</p>
                 </div>
                 <div class="panel-body panel-body-background">
                     <div class="col-md-12">
-                        <img class="center-block" src="/static/images/${img || 'default.jpg'}" alt="" style="width:auto;height:300px">
+                        <img class="center-block" src="/static/images/${img || 'default.jpg'}" alt="">
                         <a title="Leer libro" href="/static/books/${book}" class="btn btn-primary btn-upload" download><i class="fab fa-readme"></i></a>
                     </div>
                 </div>

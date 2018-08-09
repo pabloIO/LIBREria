@@ -701,6 +701,14 @@ a{
   width: 300px;
   height: auto;
 }
+
+.center-block{
+    max-height: 300px !important;
+    max-width: 100% !important;
+    min-height: 100px !important;
+}
+
+
 /* =============================================================
    HELPERS
  ============================================================ */
